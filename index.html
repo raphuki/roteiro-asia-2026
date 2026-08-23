@@ -434,6 +434,10 @@
       }
       .photo-wrap { position: relative; height: 260px; background: #e7dce2; }
       .photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+      .photo-pair { display: grid; grid-template-columns: 1fr 1fr; height: 260px; background: #e7dce2; overflow: hidden; }
+      .photo-pair img { width: 100%; height: 100%; object-fit: cover; }
+      .photo-pair img + img { border-left: 2px solid rgba(255,255,255,.7); }
+      @media (max-width: 700px) { .photo-pair { height: 220px; } }
       .duration {
         position: absolute;
         right: 13px;
@@ -988,74 +992,69 @@
       <div class="view" data-view="tailandia">
         <header
           class="country-intro"
-          style="--hero-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Grand%20Palace%20Bangkok%2C%20Thailand.jpg')"
+          style="--hero-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Ang%20Thong%20National%20Marine%20Park%2C%20Thailand.jpg')"
         >
           <div class="country-intro-inner">
             <a class="back-link route-link" href="./" data-country="home">← Voltar para a Ásia</a>
-            <p class="eyebrow">TAILÂNDIA · 11 DIAS · 14 A 24/09</p>
+            <p class="eyebrow">TAILÂNDIA · 14 A 26/09 · ROTA REORGANIZADA</p>
             <h1>Tailândia</h1>
-            <p>
-              Bangkok, o norte dos templos e elefantes, e quatro dias reservados para as paisagens
-              de Krabi e Phi Phi.
-            </p>
+            <p>Bangkok e o Summit, Golfo da Tailândia com ritmo de resort, duas noites em Cheow Lan e o norte com elefantes e os templos de Chiang Rai.</p>
             <div class="day-pills">
-              <span>Bangkok · 14 a 18/09</span>
-              <span>Chiang Mai e Chiang Rai · 2 dias</span>
-              <span>Krabi e Phi Phi · 4 dias</span>
+              <span>Bangkok · 14 a 17/09</span>
+              <span>Koh Samui + Ang Thong · 18 a 20/09</span>
+              <span>Cheow Lan / Khao Sok · 21 a 23/09</span>
+              <span>Chiang Mai + Chiang Rai · 23 a 26/09</span>
             </div>
           </div>
         </header>
 
         <section class="country-section">
-          <p class="section-kicker">VISÃO GERAL CONFIRMADA</p>
-          <h2>Onze dias organizados por data, com evento, deslocamentos e logística.</h2>
+          <p class="section-kicker">VISÃO GERAL ATUALIZADA</p>
+          <h2>Praia com melhor estratégia para setembro, luxo onde dá tempo de aproveitar e logística em uma única direção.</h2>
           <div class="overview-grid">
-            <article class="overview-card">
-              <span class="number">5</span>
-              <h3>Bangkok</h3>
-              <p>Chegada em 14/09, evento TikTok em 15 e 16/09 e turismo nos dias 17 e 18.</p>
-            </article>
-            <article class="overview-card">
-              <span class="number">2</span>
-              <h3>Norte da Tailândia</h3>
-              <p>Chiang Mai, Chiang Rai, Templo Branco obrigatório e experiência com elefantes.</p>
-            </article>
-            <article class="overview-card">
-              <span class="number">4</span>
-              <h3>Krabi e Phi Phi</h3>
-              <p>Maya Bay, Pileh Lagoon, Hong Islands, Railay Beach e Phra Nang.</p>
-            </article>
+            <article class="overview-card"><span class="number">4</span><h3>Bangkok</h3><p>Chegada em 14/09 às 12h55, evento TikTok em 15 e 16/09 e Bangkok essencial em 17/09.</p></article>
+            <article class="overview-card"><span class="number">3</span><h3>Golfo da Tailândia</h3><p>Koh Samui com resort especial e Ang Thong como principal passeio marítimo.</p></article>
+            <article class="overview-card"><span class="number">2</span><h3>Cheow Lan</h3><p>Duas noites em floating resort para transformar a hospedagem em parte da experiência.</p></article>
+            <article class="overview-card"><span class="number">3</span><h3>Norte</h3><p>Chiang Mai para Thai Elephant Home e Chiang Rai com Branco, Azul e Huay Pla Kang.</p></article>
           </div>
+          <div class="weather-alert"><strong>Estratégia de setembro</strong><span>Krabi deixa de ser a região principal de praia. A prioridade passa ao Golfo da Tailândia, com Ang Thong em janela flexível conforme a previsão marítima. O dia 21, antes livre, foi incorporado a Cheow Lan para evitar correria.</span></div>
           <nav class="region-nav" aria-label="Navegação da Tailândia">
-            <a href="#bangkok">Bangkok</a>
-            <a href="#norte">Chiang Mai e Chiang Rai</a>
-            <a href="#krabi">Krabi e Phi Phi</a>
+            <a href="#bangkok">Bangkok</a><a href="#samui">Koh Samui</a><a href="#angthong">Ang Thong</a><a href="#khaosok">Cheow Lan</a><a href="#norte">Chiang Mai e Chiang Rai</a>
           </nav>
           <nav class="day-calendar" aria-label="Calendário dos dias da Tailândia">
             <a href="#tailandia-dia14"><strong>14/09</strong><span>Chegada + Bangkok à noite</span></a>
             <a href="#tailandia-dia15"><strong>15/09</strong><span>Evento TikTok + Nobu</span></a>
             <a href="#tailandia-dia16"><strong>16/09</strong><span>Evento + Chinatown</span></a>
-            <a href="#tailandia-dia17"><strong>17/09</strong><span>Bangkok essencial</span></a>
-            <a href="#tailandia-dia18"><strong>18/09</strong><span>Mercados + Dragon Temple + voo</span></a>
-            <a href="#tailandia-dia19"><strong>19/09</strong><span>Thai Elephant Home</span></a>
-            <a href="#tailandia-dia20"><strong>20/09</strong><span>Chiang Mai → Chiang Rai</span></a>
-            <a href="#tailandia-dia21"><strong>21/09</strong><span>Voo para Krabi + resort</span></a>
-            <a href="#tailandia-dia22"><strong>22/09</strong><span>Railay + Phra Nang</span></a>
-            <a href="#tailandia-dia23"><strong>23/09</strong><span>23/09 · Hong Islands</span></a>
-            <a href="#tailandia-dia24"><strong>24/09</strong><span>Phi Phi + Pileh</span></a>
-            <a href="#tailandia-dia25"><strong>25/09</strong><span>Reserva climática</span></a>
+            <a href="#tailandia-dia17"><strong>17/09</strong><span>Bangkok essencial + Akara</span></a>
+            <a href="#tailandia-dia18"><strong>18/09</strong><span>Voo → Koh Samui + Silver Beach</span></a>
+            <a href="#tailandia-dia19"><strong>19/09</strong><span>Samui leve + resort</span></a>
+            <a href="#tailandia-dia20"><strong>20/09</strong><span>Ang Thong Marine Park</span></a>
+            <a href="#tailandia-dia21"><strong>21/09</strong><span>Samui → Cheow Lan</span></a>
+            <a href="#tailandia-dia22"><strong>22/09</strong><span>Cheow Lan dia inteiro</span></a>
+            <a href="#tailandia-dia23"><strong>23/09</strong><span>Cheow Lan → Krabi Airport → Chiang Mai</span></a>
+            <a href="#tailandia-dia24"><strong>24/09</strong><span>Thai Elephant Home</span></a>
+            <a href="#tailandia-dia25"><strong>25/09</strong><span>Chiang Rai · 3 templos</span></a>
+            <a href="#tailandia-dia26"><strong>26/09</strong><span>Tailândia → Indonésia</span></a>
           </nav>
         </section>
 
-        
+        <section class="country-section" id="bangkok">
+          <p class="section-kicker">VOOS INTERNACIONAIS CONFIRMADOS</p>
+          <h2>A viagem começa em Bangkok em 14/09</h2>
+          <div class="transport-grid">
+            <article><strong>13/09 · QR774</strong><span>GRU 01h55 → Doha 22h15 · comprado · 2 peças de bagagem.</span></article>
+            <article><strong>14/09 · QR834</strong><span>Doha 02h00 → Bangkok BKK 12h55 · comprado · chegada oficial do roteiro na Ásia.</span></article>
+          </div>
+        </section>
+
         <section class="country-section day-section" id="tailandia-dia14">
-          <div class="day-header"><div><p>BANGKOK · 14/09 · CHEGADA</p><h2>Chegada + tuk-tuk, Pad Thai e noite gay</h2></div><div class="day-side"><div class="wake"><strong>13h00</strong><span>Chegada em Bangkok</span></div></div></div>
-          <div class="schedule"><span>13h00 chegada</span><span>14h30–15h30 imigração + bagagem</span><span>~16h30 hotel/check-in</span><span>16h30–18h30 descanso</span><span>19h00 saída</span><span>19h30 tuk-tuk</span><span>20h10 Wat Ratchanatdaram</span><span>21h00 Pad Thai Fai Ta Lu</span><span>22h15 Krubb ou R3 Ratchada</span></div>
+          <div class="day-header"><div><p>BANGKOK · 14/09 · CHEGADA</p><h2>Chegada + tuk-tuk, Pad Thai e noite gay</h2></div><div class="day-side"><div class="wake"><strong>12h55</strong><span>Chegada em Bangkok · BKK</span></div></div></div>
+          <div class="schedule"><span>12h55 chegada · BKK</span><span>14h30–15h30 imigração + bagagem</span><span>~16h30 hotel/check-in</span><span>16h30–18h30 descanso</span><span>19h00 saída</span><span>19h30 tuk-tuk</span><span>20h10 Wat Ratchanatdaram</span><span>21h00 Pad Thai Fai Ta Lu</span><span>22h15 Krubb ou R3 Ratchada</span></div>
           <div class="attraction-grid">
             <article class="attraction-card"><div class="photo-wrap"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/202307%20Riding%20a%20tuk-tuk%20in%20Bangkok%20at%20night.jpg" alt="Tuk-tuk em Bangkok à noite"><span class="duration">Noite</span></div><div class="card-copy"><p class="time">19h30</p><h3>Tuk-tuk + Wat Ratchanatdaram</h3><ul><li>Passeio curto de tuk-tuk como experiência.</li><li>Parada visual no Loha Prasat iluminado.</li><li>Combinar preço antes ou usar tour confiável.</li></ul><div class="route-step"><strong>🚗 Hotel do evento → área histórica</strong><br>⏱️ tempo e distância serão fechados quando o hotel for confirmado.<br><strong>🛺 Área histórica → Wat Ratchanatdaram</strong> · trecho curto de tuk-tuk.</div></div></article>
             <article class="attraction-card meal-card"><div class="photo-wrap"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pad%20Thai%20en%20Bangkok%2C%20Tailandia%20%2823790424338%29.jpg" alt="Pad Thai em Bangkok"><span class="duration">Jantar</span></div><div class="card-copy"><p class="time">21h00</p><h3><a href="https://padthaifaitalu.com/" target="_blank" rel="noopener">Pad Thai Fai Ta Lu</a></h3><div class="route-step"><strong>🚗 Wat Ratchanatdaram → Pad Thai Fai Ta Lu</strong><br>Trajeto curto; confirmar filial mais conveniente.</div><p>Depois: <strong>Krubb ou R3 Ratchada</strong>, ainda a definir.</p></div></article>
           </div>
-          <div class="practical-box"><h4>🎒 Preparação do dia</h4><p>👕 Roupa leve para a chegada + uma troca melhor para a noite. 👟 Calçado confortável. 🔋 Powerbank. 💵 Baht em espécie para tuk-tuk/pequenos gastos.</p><span class="open-note">EM ABERTO · aeroporto de chegada + hotel fornecido pelo evento + Krubb ou R3</span></div>
+          <div class="practical-box"><h4>🎒 Preparação do dia</h4><p>👕 Roupa leve para a chegada + uma troca melhor para a noite. 👟 Calçado confortável. 🔋 Powerbank. 💵 Baht em espécie para tuk-tuk/pequenos gastos.</p><span class="open-note">CONFIRMADO · chegada QR834 em BKK às 12h55 · EM ABERTO · hotel fornecido pelo evento + Krubb ou R3</span></div>
         </section>
 
         <section class="country-section day-section alt" id="tailandia-dia15">
@@ -1092,588 +1091,136 @@
           <div class="practical-box"><h4>🎒 Preparação do dia</h4><p>👕 Ombros e joelhos cobertos o dia inteiro. 👟 Sapato confortável e fácil de tirar. ☀️ Protetor solar + chapéu. 💧 Água. 📱 Capa impermeável para o barco. 🔋 Powerbank.</p><span class="open-note">EM ABERTO · hotel da noite de 17/09</span></div>
         </section>
 
+
+
+        <section class="country-section region-banner" id="samui">
+          <p class="section-kicker">GOLFO DA TAILÂNDIA · 18 A 20/09</p>
+          <h2>Koh Samui com ritmo de resort + um grande dia de mar</h2>
+          <p>Não transformar Samui em dormitório. Nos dias leves, o hotel deve ser parte da viagem: villa ou suíte especial, idealmente com piscina privativa, boa praia e serviço de alto nível.</p>
+          <div class="hotel-note"><strong>Regra de orçamento:</strong> aqui vale investir no hotel. Em dias cheios de roteiro, voltar ao padrão de hotel bom 4★+ e bem localizado.</div>
+        </section>
+
         <section class="country-section day-section" id="tailandia-dia18">
-          <div class="day-header"><div><p>BANGKOK · 18/09 · ÚLTIMO DIA</p><h2>Maeklong + Damnoen Saduak + Dragon Temple + voo noturno</h2></div><div class="day-side"><div class="wake exception"><strong>06h30</strong><span>Acordar</span></div></div></div>
-          <div class="schedule"><span>07h30 saída</span><span>09h30 Maeklong</span><span>11h00 Damnoen Saduak</span><span>12h30 almoço</span><span>13h30 Wat Samphran</span><span>fim de tarde retorno</span><span>à noite aeroporto</span><span>último voo Bangkok → Chiang Mai</span></div>
+          <div class="day-header"><div><p>KOH SAMUI · 18/09</p><h2>Bangkok → Koh Samui + Silver Beach + resort</h2></div><div class="day-side"><div class="wake"><strong>MANHÃ</strong><span>Voo direto sugerido</span></div></div></div>
+          <div class="schedule"><span>manhã voo BKK → USM</span><span>check-in no resort</span><span>tarde Silver Beach</span><span>fim de tarde piscina/praia</span><span>jantar no hotel ou arredores</span></div>
           <div class="attraction-grid">
-            <article class="attraction-card"><div class="photo-wrap"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Maeklong%20Railway%20Market%20-%20Thailand.jpg" alt="Maeklong Railway Market"><span class="duration">Manhã</span></div><div class="card-copy"><h3>Maeklong + Damnoen Saduak</h3><div class="route-step"><strong>🚗 Bangkok → Maeklong</strong> · veículo/tour privado ou grupo pequeno.<br><strong>🚗 Maeklong → Damnoen Saduak</strong> · continuação do tour.</div><p>Levar pouco volume, dinheiro em espécie e proteção contra sol/chuva.</p></div></article>
-            <article class="attraction-card"><div class="photo-wrap"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wat%20Samphran%20dragon%20temple.jpg" alt="Wat Samphran Dragon Temple"><span class="duration">Tarde</span></div><div class="card-copy"><h3>Wat Samphran · Dragon Temple</h3><div class="route-step"><strong>🚗 Damnoen Saduak → Wat Samphran</strong> · carro/van.<br><strong>🚗 Wat Samphran → Bangkok/aeroporto</strong> · rota deve ser planejada pelo voo.</div><p>Roupas respeitosas de templo: ombros e joelhos cobertos.</p></div></article>
-            <article class="attraction-card"><div class="photo-wrap"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Chiang%20Mai%20International%20Airport%20terminal.jpg" alt="Aeroporto de Chiang Mai"><span class="duration">Noite</span></div><div class="card-copy"><h3>Último voo Bangkok → Chiang Mai</h3><p>O dia será montado ao redor do <strong>último voo noturno disponível em 18/09</strong>, a confirmar antes da compra.</p><div class="route-step"><strong>✈️ Bangkok → Chiang Mai (CNX)</strong><br>⏱️ voo direto ~1h20 · 📍 ~580 km em linha aérea.<br><strong>🚗 CNX → hotel em Chiang Mai</strong> · Grab/táxi.</div></div></article>
+            <article class="attraction-card"><div class="photo-pair"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Silver%20Beach%20Samui.jpg" alt="Silver Beach em Koh Samui"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Thong%20Ta%20Kian%20Beach%2C%20Koh%20Samui%20%2848107355718%29.jpg" alt="Crystal Bay / Silver Beach em Koh Samui"></div><div class="card-copy"><p class="time">TARDE</p><h3>Silver Beach · Crystal Bay</h3><p>Primeiro contato com o Golfo sem transformar a chegada em maratona.</p><div class="route-step"><strong>🚗 USM / resort → Silver Beach</strong><br>⏱️ ~20–35 min conforme a base escolhida · 📍 aproximadamente 12–20 km.</div><ul><li>Ficar 1h30–2h.</li><li>Priorizar a faixa rasa e as pedras para fotos.</li><li>Depois voltar ao resort e aproveitar piscina/praia.</li></ul></div></article>
           </div>
-          <div class="practical-box"><h4>🎒 Preparação do dia</h4><p>🧳 Deixar malas prontas antes do tour. 👕 Roupa compatível com templo. ☔ Capa leve/guarda-chuva. 🔋 Powerbank. 🪪 Passaporte acessível para o voo.</p><span class="open-note">EM ABERTO · pesquisar e comprar o último voo de 18/09 + hotel em Chiang Mai</span></div>
-        </section>
-
-        <section class="hotel-drawer" id="hotel-bangkok" aria-label="Hotel em Bangkok">
-          <div class="hotel-drawer-card">
-            <div class="hotel-drawer-photo">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lebua%20at%20state%20tower%20%288468453666%29.jpg" alt="Hospedagem do evento · hotel a confirmar em Bangkok" />
-            </div>
-            <div class="hotel-drawer-copy">
-              <div class="hotel-drawer-top">
-                <div>
-                  <p class="section-kicker">HOTEL EM BANGKOK · EM ABERTO</p>
-                  <h2>Hotel fornecido pelo evento · a confirmar</h2>
-                </div>
-                <a class="close-panel" href="#bangkok">Fechar</a>
-              </div>
-              <p>
-                Hospedagem fornecida pelo evento entre 14 e 17/09. O nome do hotel ainda não foi confirmado; o QSNCC é o local do evento, não o hotel.
-              </p>
-              <div class="transport-grid">
-                <article><strong>Noites confirmadas pelo evento</strong><span>14→17/09; confirmar nome do hotel e a hospedagem necessária depois do evento.</span></article>
-                <article><strong>Melhor escolha</strong><span>Priorizar River View Suite ou Tower Club se couber no orçamento.</span></article>
-                <article><strong>Dica</strong><span>Confirmar política de cancelamento, café incluso, taxas e dress code dos restaurantes do Dome.</span></article>
-              </div>
-              <div class="hotel-actions">
-                <a href="https://www.lebua.com/hotels/lebua-at-state-tower/" target="_blank" rel="noopener">Site do hotel</a>
-                <a class="secondary" href="https://www.google.com/maps/search/?api=1&query=lebua%20at%20State%20Tower%20Bangkok" target="_blank" rel="noopener">Mapa do hotel</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="country-section region-banner" id="norte">
-          <p class="section-kicker">NORTE DA TAILÂNDIA · 2 DIAS</p>
-          <h2>Chiang Mai e Chiang Rai</h2>
-          <p>
-            Um bloco rápido, feito em uma única direção e sem voltar pela estrada. O roteiro abaixo
-            considera Chiang Mai primeiro, mas pode ser invertido conforme os voos e a ordem da
-            viagem que vocês escolherem.
-          </p>
-          <div class="day-pills">
-            <span>Elefantes · dia inteiro</span>
-            <span>Templo Branco · obrigatório</span>
-            <span>Estrada · 3h a 3h30</span>
-          </div>
+          <div class="practical-box"><h4>🏨 Hospedagem deste bloco</h4><p>Procurar <strong>resort realmente especial em Koh Samui</strong>, com piscina privativa ou suíte/villa com vista, porque haverá tempo real para aproveitar.</p><span class="open-note">EM ABERTO · escolher resort + comprar voo BKK → USM de 18/09, preferencialmente pela manhã.</span></div>
         </section>
 
         <section class="country-section day-section alt" id="tailandia-dia19">
-          <div class="day-header"><div><p>CHIANG MAI · 19/09</p><h2>Thai Elephant Home · 1 Day Elephant Riding</h2></div><div class="day-side"><div class="wake"><strong>08h00</strong><span>Pickup</span></div></div></div>
-          <div class="schedule"><span>08h00 pickup em Chiang Mai</span><span>alimentação e vínculo</span><span>montaria pela trilha na selva</span><span>almoço</span><span>lama</span><span>rio + banho dos elefantes</span><span>chuveiro e troca</span><span>~17h retorno a Chiang Mai</span></div>
-          <div class="attraction-grid"><article class="attraction-card"><div class="photo-wrap"><img src="https://thaielephanthome.com/wp-content/uploads/2019/07/1-Day-Elephant-Riding-1.jpg" alt="Experiência no Thai Elephant Home"><span class="duration">Dia inteiro</span></div><div class="card-copy"><h3><a href="https://thaielephanthome.com/program/1-Day-Elephant-Riding/" target="_blank" rel="noopener">Thai Elephant Home · Mae Taeng</a></h3><ul><li>Programa escolhido: <strong>1 Day Elephant Riding</strong>, com montaria.</li><li>O programa oficial informa pickup às 08h e retorno a Chiang Mai por volta das 17h.</li><li>Inclui trilha montado, almoço, lama, rio, banho e chuveiro antes do retorno.</li></ul><div class="route-step"><strong>🚗 Hotel em Chiang Mai → Thai Elephant Home, Mae Taeng</strong><br>Traslado do próprio programa dentro de Chiang Mai City.<br><strong>🚗 Thai Elephant Home → Chiang Mai</strong> · retorno incluído.</div></div></article></div>
-          <div class="practical-box"><h4>🎒 O que levar / roupa</h4><p>👕 Roupa que possa sujar + <strong>troca completa seca</strong>. 🩲 Roupa íntima extra. 👟 Calçado que possa molhar / water shoes. 🧴 Repelente + protetor solar. 🧢 Chapéu. 🧺 Saco para roupa molhada/suja. 📱 Dry bag/capa impermeável. O programa informa que há <strong>chuveiro e troca antes do retorno</strong>.</p><p>Não encaixar Doi Suthep neste dia: o passeio ocupa praticamente o dia inteiro.</p></div>
+          <div class="day-header"><div><p>KOH SAMUI · 19/09</p><h2>Samui leve: templo bonito + muito resort</h2></div><div class="day-side"><div class="wake"><strong>SEM PRESSA</strong><span>Dia de aproveitar</span></div></div></div>
+          <div class="schedule"><span>manhã livre no resort</span><span>almoço sem pressa</span><span>15h30 Wat Plai Laem</span><span>17h00 retorno</span><span>piscina / massagem / jantar</span></div>
+          <div class="attraction-grid">
+            <article class="attraction-card"><div class="photo-pair"><img loading="lazy" src="https://a.cdn-hotels.com/gdcs/production104/d1221/b4062792-d2d8-4721-84f4-50dbe373997f.jpg" alt="Wat Plai Laem em Koh Samui"><img loading="lazy" src="https://www.thaisabai.de/img/img-gr/koh-samui/yao-mae-kuan-im-wat-plai-laem-koh-samui.jpg" alt="Guanyin de 18 braços no Wat Plai Laem"></div><div class="card-copy"><p class="time">~15h30–16h30</p><h3>Wat Plai Laem</h3><p>Templo colorido sobre a água, com a grande Guanyin de 18 braços.</p><div class="route-step"><strong>🚗 Base em Samui → Wat Plai Laem</strong><br>⏱️ ~10–35 min conforme o resort. O complexo fica no nordeste da ilha, perto do aeroporto.</div><ul><li>Visita de ~45–60 min.</li><li>Ombros e joelhos cobertos.</li><li>Voltar cedo ao resort: a prioridade do dia é aproveitar a hospedagem.</li></ul></div></article>
+          </div>
+          <div class="night-card"><strong>Regra do dia</strong><span>Se o resort estiver excelente e ninguém quiser sair, o templo pode virar opcional. Não preencher o dia apenas porque há tempo.</span></div>
+        </section>
+
+        <section class="country-section region-banner" id="angthong">
+          <p class="section-kicker">ANG THONG · PRIORIDADE ALTA</p><h2>O grande passeio marítimo do Golfo</h2><p>Escolher operador que permita focar em mirantes, lagoa, paisagem e praia/kayak. Snorkel não é prioridade para nós.</p>
         </section>
 
         <section class="country-section day-section" id="tailandia-dia20">
-          <div class="day-header">
-            <div>
-              <p>NORTE · 20/09 · CHIANG MAI → CHIANG RAI</p>
-              <h2>Os três templos de Chiang Rai</h2>
-            </div>
-            <div class="wake">
-              <strong>07h00</strong>
-              <span>Acordar</span>
-            </div>
-          </div>
-          <div class="schedule">
-            <span>07h00 acordar</span>
-            <span>07h45 checkout e saída</span>
-            <span>3h–3h30 de estrada</span>
-            <span>11h15 Templo Branco</span>
-            <span>12h40–13h30 almoço</span>
-            <span>13h45 Templo Azul</span>
-            <span>14h55 Wat Huay Pla Kang</span>
-            <span>16h30 The Legend Chiang Rai</span>
-          </div>
+          <div class="day-header"><div><p>MU KO ANG THONG · 20/09</p><h2>Wua Ta Lap + Emerald Lake</h2></div><div class="day-side"><div class="wake exception"><strong>~07h00</strong><span>Pickup provável</span></div></div></div>
+          <div class="schedule"><span>pickup no hotel</span><span>speedboat ~45–80 min</span><span>Wua Ta Lap</span><span>almoço</span><span>Emerald Lake</span><span>praia/kayak opcional</span><span>fim da tarde Samui</span></div>
           <div class="attraction-grid">
-            <article class="attraction-card">
-              <div class="photo-wrap">
-                <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Wat%20Rong%20Khun%20-%20Chiang%20Rai.jpg" alt="Templo Branco Wat Rong Khun em Chiang Rai" />
-                <span class="duration">1h15</span>
-              </div>
-              <div class="card-copy">
-                <span class="required-badge">OBRIGATÓRIO</span>
-                <p class="time">11h15 - 12h30</p>
-                <h3>Wat Rong Khun · Templo Branco</h3>
-                <ul>
-                  <li>Não acelerar a ponte: os detalhes são a parte mais impressionante.</li>
-                  <li>Fotos não são permitidas dentro do salão principal.</li>
-                  <li>Ombros e joelhos cobertos.</li>
-                  <li>Separar tempo para o edifício dourado e a galeria.</li>
-                </ul>
-              </div>
-            </article>
-            <article class="attraction-card">
-              <div class="photo-wrap">
-                <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Wat%20Rong%20Suea%20Ten%20%2849724986806%29.jpg" alt="Templo Azul Wat Rong Suea Ten em Chiang Rai" />
-                <span class="duration">50 min</span>
-              </div>
-              <div class="card-copy">
-                <p class="time">13h45 - 14h35</p>
-                <h3>Wat Rong Suea Ten · Templo Azul</h3>
-                <ul>
-                  <li>Começar pelo interior e depois fotografar a fachada.</li>
-                  <li>Retirar os sapatos para entrar.</li>
-                  <li>Procurar o grande Buda branco e os murais azuis.</li>
-                  <li>Quase não há sombra no pátio; levar água.</li>
-                </ul>
-              </div>
-            </article>
-            <article class="attraction-card">
-              <div class="photo-wrap">
-                <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Wat%20Huay%20Pla%20Kang%20%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AB%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%9B%E0%B8%A5%E0%B8%B2%E0%B8%81%E0%B8%B1%E0%B9%89%E0%B8%87%20Chiang%20Rai%20%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2%2001.jpg" alt="Wat Huay Pla Kang em Chiang Rai" />
-                <span class="duration">1 hora</span>
-              </div>
-              <div class="card-copy">
-                <p class="time">14h55 - 15h55</p>
-                <h3>Wat Huay Pla Kang</h3>
-                <ul>
-                  <li>Usar o elevador interno da grande estátua para ver Chiang Rai do alto.</li>
-                  <li>Visitar a pagoda de nove andares se houver tempo.</li>
-                  <li>Levar dinheiro para o elevador.</li>
-                  <li>A área é extensa: combinar o estacionamento com o motorista.</li>
-                </ul>
-              </div>
-            </article>
-            <article class="attraction-card">
-              <div class="photo-wrap">
-                <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Chiang%20Rai%20International%20Airport.jpg" alt="Aeroporto de Chiang Rai" />
-                <span class="duration">1h30 de margem</span>
-              </div>
-              <div class="card-copy">
-                <p class="time">A PARTIR DE 16h30</p>
-                <h3>Check-in · The Legend Chiang Rai</h3>
-                <ul>
-                  <li>Encerrar o circuito no hotel, sem retornar a Chiang Mai.</li><li>O motorista/tour deve aceitar as malas durante todo o circuito.</li><li>Descansar no resort e preparar a saída aérea do dia seguinte.</li>
-                </ul>
-              </div>
-            </article>
+            <article class="attraction-card"><div class="photo-pair"><img loading="lazy" src="https://content.oh-hoo.com/app/uploads/2020/12/1769321943_C-6-.jpg" alt="Mirante de Wua Ta Lap em Ang Thong"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ang%20Thong%20Marine%20National%20Park.jpg" alt="Ilhas de Ang Thong vistas do alto"></div><div class="card-copy"><h3>Wua Ta Lap Viewpoint</h3><p>O cartão-postal das dezenas de ilhas espalhadas pelo Golfo.</p><div class="route-step"><strong>🚤 Koh Samui → Mu Ko Ang Thong</strong><br>⏱️ ~45–80 min de speedboat · 📍 cerca de 30 km até o arquipélago.</div><ul><li>Subida puxada; usar tênis com aderência.</li><li>Não insistir se trilha estiver perigosa por chuva.</li><li>Separar 1h30–2h com praia e mirante.</li></ul></div></article>
+            <article class="attraction-card"><div class="photo-pair"><img loading="lazy" src="https://content.oh-hoo.com/app/uploads/2026/07/1784387104_Emerald-Lake-Talay-Nai-.webp" alt="Emerald Lake em Ang Thong"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ko%20Mae%20Ko%2C%20Mu%20Ko%20Ang%20Thong%20National%20Park.jpg" alt="Ko Mae Ko em Ang Thong"></div><div class="card-copy"><h3>Emerald Lake · Talay Nai</h3><p>Lagoa verde cercada pelos paredões de Ko Mae Ko, vista por passarelas e mirantes.</p><div class="route-step"><strong>🚤 Wua Ta Lap / rota do tour → Ko Mae Ko</strong><br>Deslocamento curto dentro do arquipélago.</div><ul><li>Não depende de natação.</li><li>Priorizar fotos e mirantes.</li><li>Kayak é opcional; snorkel pode ser ignorado.</li></ul></div></article>
           </div>
+          <div class="weather-alert"><strong>Janela flexível</strong><span>Se o mar estiver ruim em 20/09 e houver previsão melhor em 19/09, inverter os dois dias. A segurança marítima manda.</span></div>
+          <div class="practical-box"><h4>🎒 Levar</h4><p>Roupa leve de secagem rápida, tênis para o mirante, chinelo, protetor solar, chapéu, dry bag, capa impermeável para celular, remédio para enjoo se necessário e dinheiro para taxa do parque.</p><span class="open-note">EM ABERTO · escolher e comprar tour de Ang Thong com pickup no hotel e foco em paisagem/kayak, não snorkel.</span></div>
         </section>
 
-        <section class="country-section">
-          <p class="section-kicker">ONDE FICAR NO NORTE</p>
-          <h2>Hotéis definidos no norte</h2>
-          <div class="hotel-grid">
-            <article class="hotel-card"><div class="hotel-card-copy"><span class="hotel-type">DEFINIDO · 18→20/09</span><h3>U Chiang Mai</h3><p>Base em Chiang Mai por 2 noites: chegada após o voo de 18/09, Thai Elephant Home em 19/09 e check-out em 20/09.</p></div></article>
-            <article class="hotel-card"><div class="hotel-card-copy"><span class="hotel-type">DEFINIDO · 20→21/09</span><h3>The Legend Chiang Rai Boutique River Resort & Spa</h3><p>Uma noite em Chiang Rai depois do circuito dos templos; check-out em 21/09 para seguir ao aeroporto.</p></div></article>
-          </div>
-          <div class="hotel-note">
-            Hospedagem do norte definida: U Chiang Mai (18→20/09) e The Legend Chiang Rai (20→21/09).
-          </div>
+        <section class="country-section region-banner" id="khaosok">
+          <p class="section-kicker">KHAO SOK / CHEOW LAN · 21 A 23/09</p><h2>Duas noites no lago para não transformar a experiência em corrida</h2><p>O antigo dia livre de Samui foi incorporado aqui. A ideia é chegar, navegar, dormir sobre o lago, ter um dia completo e só então seguir para Chiang Mai.</p>
         </section>
-
-        <section class="country-section">
-          <p class="section-kicker">TRANSPORTE NO NORTE</p>
-          <h2>O que será necessário</h2>
-          <div class="transport-grid">
-            <article><strong>Motorista particular</strong><span>Essencial no segundo dia; cerca de 3h a 3h30 entre Chiang Mai e Chiang Rai.</span></article>
-            <article><strong>Tour com traslado</strong><span>Melhor solução para Mae Taeng, já com hotel, atividades e almoço coordenados.</span></article>
-            <article><strong>Grab</strong><span>Útil apenas nos deslocamentos curtos dentro de Chiang Mai.</span></article>
-            <article><strong>Sem voo entre as duas cidades</strong><span>A ligação prática é rodoviária.</span></article>
-            <article><strong>Dirigir é possível</strong><span>Exige Permissão Internacional para Dirigir e segurança para conduzir pela esquerda.</span></article>
-            <article><strong>Nossa escolha</strong><span>Não alugar carro: chuva, estrada de montanha e malas tornam o motorista mais eficiente.</span></article>
-          </div>
-        </section>
-
-        <section class="country-section food">
-          <p class="section-kicker">ONDE COMER NO NORTE</p>
-          <h2>Três almoços e três jantares</h2>
-          <div class="food-columns">
-            <div>
-              <h3>Almoço</h3>
-              <article><strong>Khao Soi Khun Yai</strong><span>Khao soi local, rápido e ideal para provar o prato mais famoso de Chiang Mai.</span></article>
-              <article><strong>Ginger Farm Kitchen</strong><span>Cozinha do norte em ambiente confortável; boa opção se o cronograma mudar.</span></article>
-              <article><strong>Chivit Thamma Da</strong><span>Casa-jardim à beira do rio em Chiang Rai, próxima do Templo Azul.</span></article>
-            </div>
-            <div>
-              <h3>Jantar</h3>
-              <article><strong>Kiti Panit</strong><span>Cozinha Lanna em uma mansão histórica; reservar e verificar o dia de funcionamento.</span></article>
-              <article><strong>The Service 1921</strong><span>Experiência sofisticada dentro do Anantara Chiang Mai.</span></article>
-              <article><strong>Ginger Farm Kitchen</strong><span>Alternativa segura e central para uma noite sem deslocamento longo.</span></article>
-            </div>
-          </div>
-        </section>
-
-        <section class="country-section region-banner" id="krabi">
-          <p class="section-kicker">KRABI E PHI PHI · 5 DIAS</p>
-          <h2>Chegada para curtir o resort, três dias icônicos e uma reserva climática</h2>
-          <p>
-            As praias confirmadas continuam no roteiro. Em setembro, cada saída de barco será
-            decidida pela previsão marítima da véspera, e o quarto dia fica livre para repetir o
-            passeio que eventualmente for cancelado.
-          </p>
-          <div class="day-pills">
-            <span>21/09 · chegada + resort</span>
-            <span>22/09 · Railay e Phra Nang</span>
-            <span>Hong Islands</span>
-            <span>24/09 · Phi Phi e Pileh Lagoon</span>
-            <span>25/09 · reserva climática</span>
-          </div>
-          <div class="weather-alert">
-            <strong>Atenção para setembro de 2026:</strong> Maya Bay deve ser tratada como fechada para desembarque durante o período sazonal de setembro. O passeio de 24/09 continua focado em Phi Phi e Pileh Lagoon, sem depender de snorkeling; reconfirmar regras do parque antes da compra.
-          </div>
-                  <div class="practical-box"><h4>🎒 Preparação do dia</h4><p>👕 Roupa de templo: ombros e joelhos cobertos. 👟 Calçado confortável. ☀️ Protetor solar. 💧 Água. 📷 No Templo Branco, fotos externas são o foco; não contar com fotos dentro do salão principal.</p><span class="open-note">LOGÍSTICA A REVISAR · horário de Doi Suthep + carro Chiang Mai → Chiang Rai</span></div>
-</section>
 
         <section class="country-section day-section alt" id="tailandia-dia21">
-          <div class="day-header"><div><p>CHIANG RAI → KRABI · 21/09</p><h2>Voo para Krabi + dia para aproveitar o resort</h2></div><div class="day-side"><div class="wake"><strong>Manhã</strong><span>Check-out</span></div></div></div>
-          <div class="schedule"><span>check-out The Legend</span><span>🚗 hotel → CEI</span><span>✈️ Chiang Rai → Bangkok → Krabi</span><span>🚗 KBV → resort</span><span>check-in + tarde/noite livre</span></div>
-          <div class="attraction-grid"><article class="attraction-card"><div class="photo-wrap"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Krabi%20Thailand.jpg" alt="Paisagem de Krabi"><span class="duration">Chegada</span></div><div class="card-copy"><p class="time">HORÁRIO DEPENDE DO VOO</p><h3>Chiang Rai → Krabi</h3><div class="route-step"><strong>🚗 The Legend → Chiang Rai Airport (CEI)</strong><br><strong>✈️ CEI → Bangkok → Krabi (KBV)</strong> · conexão; reservar o itinerário mais rápido disponível.<br><strong>🚗 KBV → resort</strong> · transfer do hotel/Grab conforme a base escolhida.</div><p>Sem passeio externo: a prioridade é chegar, fazer check-in e aproveitar um hotel especial em Krabi.</p></div></article></div>
-          <div class="practical-box"><h4>🎒 Preparação do dia</h4><p>🧳 Mala pronta na noite anterior. 🪪 Passaporte/documentos acessíveis. 🔋 Powerbank. 👕 Roupa confortável de voo + roupa de piscina/praia na bagagem de mão.</p><span class="open-note">EM ABERTO · escolher resort de Krabi + pesquisar/comprar a rota aérea CEI → KBV</span></div>
+          <div class="day-header"><div><p>SAMUI → CHEOW LAN · 21/09</p><h2>Ferry + estrada + longtail + primeira noite flutuante</h2></div><div class="day-side"><div class="wake"><strong>MANHÃ</strong><span>Saída de Samui</span></div></div></div>
+          <div class="schedule"><span>checkout Samui</span><span>ferry para o continente</span><span>transfer privado até Ratchaprapha Pier</span><span>longtail pelo lago</span><span>check-in floating resort</span><span>pôr do sol no lago</span></div>
+          <div class="attraction-grid">
+            <article class="attraction-card"><div class="photo-pair"><img loading="lazy" src="https://thaiunika.com/wp-content/uploads/2022/06/chao-larn-lake.jpg" alt="Cheow Lan Lake em Khao Sok"><img loading="lazy" src="https://www.khaosokaccommodation.com/_next/image?q=75&amp;url=%2Fimages%2Fblog%2Fpost-17%2Flake-3.jpg&amp;w=3840" alt="Longtail boat em Cheow Lan Lake"></div><div class="card-copy"><h3>Cheow Lan Lake</h3><p>Floresta tropical, água verde e paredões de calcário: uma experiência completamente diferente das ilhas.</p><div class="route-step"><strong>⛴️ Koh Samui → continente</strong> · ferry.<br><strong>🚗 Continente → Ratchaprapha Pier</strong> · transfer privado.<br><strong>🚤 Píer → floating resort</strong> · longtail.<br>⏱️ reservar aproximadamente 4–5h totais de deslocamento desde Samui, variando com ferry e hotel escolhido.</div><ul><li>A navegação já é parte da experiência.</li><li>Não exige snorkel nem entrar em água funda.</li></ul></div></article>
+            <article class="attraction-card"><div class="photo-pair"><img loading="lazy" src="https://static.wixstatic.com/media/a9f338_c2e99b40e7b04f7dac2e77e4a5fa4e03~mv2.jpg/v1/fill/w_838%2Ch_644%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/a9f338_c2e99b40e7b04f7dac2e77e4a5fa4e03~mv2.jpg" alt="Floating bungalows em Cheow Lan"><img loading="lazy" src="https://wallpapercrafter.com/desktop4/1121997-cheow-lan-lake-khao-sok-national-park-thailand.jpg" alt="Resort flutuante em Cheow Lan Lake"></div><div class="card-copy"><h3>Floating resort · 1ª noite</h3><p>A hospedagem precisa ser parte do passeio: quarto bonito, banheiro privativo, boa vista e conforto real.</p><ul><li>Aqui vale pagar mais porque haverá duas noites e um dia inteiro.</li><li>Priorizar ar-condicionado se disponível.</li><li>Não escolher acomodação básica só por ficar dentro do parque.</li></ul></div></article>
+          </div>
+          <div class="practical-box"><h4>🎒 Logística</h4><p>Viajar com uma mala organizada para 2 noites no lago; confirmar política de bagagem no longtail. Levar repelente, capa de chuva, tênis/sandália aderente, dry bag, powerbank e roupa leve.</p><span class="open-note">EM ABERTO · escolher floating resort + transfer Samui → píer + barco até o hotel.</span></div>
         </section>
 
-        <section class="country-section day-section alt" id="tailandia-dia22">
-          <div class="day-header">
-            <div>
-              <p>KRABI · 22/09</p>
-              <h2>Railay Beach e Phra Nang</h2>
-            </div>
-            <div class="wake">
-              <strong>07h30</strong>
-              <span>Acordar</span>
-            </div>
-          </div>
-          <div class="schedule">
-            <span>07h30 acordar</span>
-            <span>08h00 café</span>
-            <span>08h30 saída do hotel</span>
-            <span>08h45 barco para Railay</span>
-            <span>12h30–13h30 almoço</span>
-            <span>16h30 barco de retorno</span>
-            <span>17h15 hotel</span>
-            <span>19h30 jantar</span>
-          </div>
+        <section class="country-section day-section" id="tailandia-dia22">
+          <div class="day-header"><div><p>CHEOW LAN · 22/09</p><h2>Dia inteiro no lago — sem obrigação de encher a agenda</h2></div><div class="day-side"><div class="wake"><strong>SEM CORRER</strong><span>Hotel + lago</span></div></div></div>
+          <div class="schedule"><span>amanhecer no lago</span><span>café</span><span>passeio curto de longtail</span><span>almoço</span><span>resort / descanso</span><span>pôr do sol</span><span>2ª noite</span></div>
           <div class="attraction-grid">
-            <article class="attraction-card">
-              <div class="photo-wrap">
-                <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Railay%2C%20Krabi%2C%20Thailand.jpg" alt="Railay Beach em Krabi" />
-                <span class="duration">1h45</span>
-              </div>
-              <div class="card-copy">
-                <p class="time">09h00 - 10h45</p>
-                <h3>Railay Beach</h3>
-                <ul>
-                  <li>Ir cedo para pegar a praia e as falésias com menos movimento.</li>
-                  <li>Levar dinheiro para o barco e bolsa impermeável.</li>
-                  <li>A areia molhada exige calçado que possa entrar na água.</li>
-                  <li>Se o mar suspender os barcos, transferir este dia para o dia-reserva.</li>
-                </ul>
-              </div>
-            </article>
-            <article class="attraction-card">
-              <div class="photo-wrap">
-                <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Phra%20Nang%20Beach.jpg" alt="Phra Nang Beach em Krabi" />
-                <span class="duration">4h45 com almoço</span>
-              </div>
-              <div class="card-copy">
-                <p class="time">11h00 - 15h45</p>
-                <h3>Phra Nang Beach</h3>
-                <ul>
-                  <li>Caminhar de Railay East até Phra Nang; não é necessário outro barco.</li>
-                  <li>Visitar a Princess Cave com respeito às oferendas.</li>
-                  <li>Almoçar na região e deixar a tarde flexível para praia e fotos.</li>
-                  <li>Não entrar junto às falésias se houver aviso de queda de rochas.</li>
-                </ul>
-              </div>
-            </article>
+            <article class="attraction-card"><div class="photo-pair"><img loading="lazy" src="https://thaiunika.com/wp-content/uploads/2022/06/chao-larn-lake.jpg" alt="Paredões de Cheow Lan Lake"><img loading="lazy" src="https://www.khaosokaccommodation.com/_next/image?q=75&amp;url=%2Fimages%2Fblog%2Fpost-17%2Flake-3.jpg&amp;w=3840" alt="Navegação entre formações de Cheow Lan"></div><div class="card-copy"><h3>Cheow Lan · navegação panorâmica</h3><p>Fazer somente o circuito que realmente valha a pena e voltar cedo para aproveitar o hotel.</p><ul><li>Longtail entre formações calcárias.</li><li>Paradas terrestres apenas se forem realmente especiais e seguras com o clima.</li><li>Natação e kayak são opcionais.</li></ul></div></article>
+            <article class="attraction-card"><div class="photo-pair"><img loading="lazy" src="https://static.wixstatic.com/media/a9f338_c2e99b40e7b04f7dac2e77e4a5fa4e03~mv2.jpg/v1/fill/w_838%2Ch_644%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/a9f338_c2e99b40e7b04f7dac2e77e4a5fa4e03~mv2.jpg" alt="Hospedagem sobre Cheow Lan Lake"><img loading="lazy" src="https://wallpapercrafter.com/desktop4/1121997-cheow-lan-lake-khao-sok-national-park-thailand.jpg" alt="Bangalôs sobre Cheow Lan Lake"></div><div class="card-copy"><h3>Floating resort · aproveitar de verdade</h3><p>Este é o dia que justifica escolher uma hospedagem melhor: piscina/deck se houver, vista, descanso, massagem se oferecida e tempo livre.</p></div></article>
           </div>
-          <div class="plan-b">
-            <h3>Plano B deste dia</h3>
-            <p>
-              Chuva leve não cancela automaticamente Railay. Com mar inseguro ou raios, trocar pelo
-              Dia 4 em terra e tentar Railay na melhor janela dos dias seguintes.
-            </p>
-          </div>
-                  <div class="practical-box"><h4>🎒 Preparação do dia</h4><p>🎒 Roupa de banho por baixo, roupa leve de secagem rápida, chinelo/sandália com boa aderência, protetor solar reef-safe, chapéu, água, toalha pequena, dry bag e capa impermeável para celular. Setembro exige plano flexível por chuva e mar.</p></div>
-</section>
-
-        <section class="country-section day-section" id="tailandia-dia23">
-          <div class="day-header">
-            <div>
-              <p>KRABI · 23/09</p>
-              <h2>Hong Islands</h2>
-            </div>
-            <div class="wake">
-              <strong>07h30</strong>
-              <span>Acordar</span>
-            </div>
-          </div>
-          <div class="schedule">
-            <span>07h30 acordar</span>
-            <span>08h00 café</span>
-            <span>08h15 lobby</span>
-            <span>09h00 saída de barco</span>
-            <span>12h00–13h00 almoço</span>
-            <span>15h00 retorno ao píer</span>
-            <span>16h30 hotel</span>
-            <span>19h30 jantar</span>
-          </div>
-          <div class="attraction-grid">
-            <article class="attraction-card">
-              <div class="photo-wrap">
-                <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lagoon%20of%20Hong%20island.jpg" alt="Lagoa da Hong Island em Krabi" />
-                <span class="duration">45 min</span>
-              </div>
-              <div class="card-copy">
-                <p class="time">HORÁRIO DEFINIDO PELA MARÉ</p>
-                <h3>Hong Lagoon</h3>
-                <ul>
-                  <li>A entrada da lagoa depende da maré e da avaliação do barqueiro.</li>
-                  <li>Sentar do lado externo do barco para fotografar as paredes de calcário.</li>
-                  <li>Não prometer natação: algumas condições permitem apenas passagem panorâmica.</li>
-                  <li>Usar saco estanque para celular e documentos.</li>
-                </ul>
-              </div>
-            </article>
-            <article class="attraction-card">
-              <div class="photo-wrap">
-                <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/1.Ko%20Hong%20Island%20-%20Andaman%20Sea%20-%20Krabi%20Province%2C%20Thailand.jpg" alt="Praia de Ko Hong em Krabi" />
-                <span class="duration">2h30</span>
-              </div>
-              <div class="card-copy">
-                <p class="time">MANHÃ E INÍCIO DA TARDE</p>
-                <h3>Ko Hong · praia e mirante</h3>
-                <ul>
-                  <li>Priorizar a praia antes do almoço.</li>
-                  <li>O mirante tem muitos degraus e pode ficar escorregadio; subir somente se estiver seco.</li>
-                  <li>Levar água, protetor solar e dinheiro para a taxa do parque.</li>
-                  <li>Confirmar se colete, máscara, almoço e taxa estão incluídos.</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-          <div class="plan-b">
-            <h3>Plano B deste dia</h3>
-            <p>
-              Se a autoridade marítima ou o operador cancelar, não trocar por outro barco. Usar o
-              Dia 4 em terra e reagendar Hong Islands para a melhor previsão restante.
-            </p>
-          </div>
-                  <div class="practical-box"><h4>🎒 Preparação do dia</h4><p>🎒 Roupa de banho, rash guard/camiseta UV, protetor reef-safe, dry bag, water shoes, toalha, remédio para enjoo se necessário, powerbank e dinheiro em baht para taxas do parque. Confirmar taxa vigente com o operador.</p></div>
-</section>
-
-        <section class="country-section day-section alt" id="tailandia-dia24">
-          <div class="day-header">
-            <div>
-              <p>KRABI · 24/09</p>
-              <h2>Phi Phi + Pileh Lagoon</h2>
-            </div>
-            <div class="wake exception">
-              <strong>07h00</strong>
-              <span>Necessário para o barco</span>
-            </div>
-          </div>
-          <div class="schedule">
-            <span>07h00 acordar</span>
-            <span>07h20 café</span>
-            <span>07h45 lobby</span>
-            <span>08h30 saída de lancha</span>
-            <span>12h00–13h00 almoço</span>
-            <span>16h00 retorno ao píer</span>
-            <span>17h00 hotel</span>
-            <span>19h30 jantar</span>
-          </div>
-          <div class="attraction-grid">
-            <article class="attraction-card">
-              <div class="photo-wrap">
-                <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pileh%20Lagoon.jpg" alt="Pileh Lagoon nas Ilhas Phi Phi" />
-                <span class="duration">45 min</span>
-              </div>
-              <div class="card-copy">
-                <p class="time">ORDEM AJUSTADA PELO CAPITÃO</p>
-                <h3>Pileh Lagoon</h3>
-                <ul>
-                  <li>O horário real depende da maré e do movimento de barcos.</li>
-                  <li>Perguntar antes se será possível nadar.</li>
-                  <li>Usar colete mesmo em água aparentemente calma.</li>
-                  <li>É uma das prioridades absolutas do passeio.</li>
-                </ul>
-              </div>
-            </article>
-            <article class="attraction-card">
-              <div class="photo-wrap">
-                <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Maya%20Bay%20Thailand.jpg" alt="Maya Bay nas Ilhas Phi Phi" />
-                <span class="duration">20 min ou 1 hora</span>
-              </div>
-              <div class="card-copy">
-                <span class="required-badge">CONFIRMADA</span>
-                <p class="time">SETEMBRO: VISTA DO BARCO</p>
-                <h3>Maya Bay</h3>
-                <ul>
-                  <li>Em setembro de 2026, não haverá desembarque na praia.</li>
-                  <li>A visita será panorâmica, se a rota e o mar permitirem.</li>
-                  <li>A partir de 1º de outubro, reservar cerca de 1 hora para o desembarque.</li>
-                  <li>Mesmo aberta, não é permitido nadar dentro da baía.</li>
-                </ul>
-              </div>
-            </article>
-            <article class="attraction-card">
-              <div class="photo-wrap">
-                <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Phi%20Phi%20Island%20Thailand.jpg" alt="Ilhas Phi Phi na Tailândia" />
-                <span class="duration">3 horas</span>
-              </div>
-              <div class="card-copy">
-                <p class="time">MEIO-DIA E TARDE</p>
-                <h3>Phi Phi Don, Viking Cave e Bamboo</h3>
-                <ul>
-                  <li>Viking Cave é uma parada panorâmica, sem entrada.</li>
-                  <li>Almoçar em Phi Phi Don e evitar ocupar todo o tempo com compras.</li>
-                  <li>Bamboo Island depende da rota, do mar e da autorização do parque.</li>
-                  <li>Escolher lancha com poucos passageiros e política clara de cancelamento.</li>
-                </ul>
-              </div>
-            </article>
-            <article class="attraction-card">
-              <div class="photo-wrap">
-                <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Phi%20Phi%20Island%2C%20Thailand.jpg" alt="Barcos nas Ilhas Phi Phi" />
-                <span class="duration">Dia inteiro</span>
-              </div>
-              <div class="card-copy">
-                <p class="time">DECISÃO NA VÉSPERA</p>
-                <h3>Condição para o passeio acontecer</h3>
-                <ul>
-                  <li>Confirmar às 18h da véspera a previsão de ondas, vento e raios.</li>
-                  <li>Não insistir se o operador ou a autoridade marítima cancelar.</li>
-                  <li>Levar remédio para enjoo somente conforme orientação médica.</li>
-                  <li>Manter o Dia 4 livre até o fim do último passeio de barco.</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-          <div class="plan-b">
-            <h3>Plano B deste dia</h3>
-            <p>
-              Transferir Phi Phi para o Dia 4. Se nenhum dia tiver condição segura, o passeio não
-              será substituído por uma saída arriscada: usar o programa em terra abaixo.
-            </p>
-          </div>
-                  <div class="practical-box"><h4>🎒 Preparação do dia</h4><p>🎒 Roupa de banho, proteção UV, dry bag, water shoes, toalha e remédio para enjoo. ⚠️ Maya Bay tem fechamento sazonal em agosto/setembro; em 23/09/2026 não devemos tratar desembarque em Maya Bay como garantido. Priorizar Pileh e alternativas operadas legalmente.</p></div>
-</section>
-
-        <section class="country-section day-section" id="tailandia-dia25">
-          <div class="day-header">
-            <div>
-              <p>KRABI · 25/09</p>
-              <h2>Reserva climática ou Krabi em terra</h2>
-            </div>
-            <div class="wake">
-              <strong>07h30</strong>
-              <span>Acordar</span>
-            </div>
-          </div>
-          <div class="schedule">
-            <span>07h30 acordar</span>
-            <span>08h00 café</span>
-            <span>08h30 checar o mar</span>
-            <span>Opção A: repetir passeio cancelado</span>
-            <span>Opção B: saída em terra às 09h30</span>
-            <span>17h00 hotel</span>
-            <span>19h30 jantar</span>
-          </div>
-          <div class="attraction-grid">
-            <article class="attraction-card">
-              <div class="photo-wrap">
-                <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Krabi%20Town.jpg" alt="Krabi Town na Tailândia" />
-                <span class="duration">2 horas</span>
-              </div>
-              <div class="card-copy">
-                <p class="time">09h30 - 11h30 · SE NÃO HOUVER BARCO</p>
-                <h3>Krabi Town</h3>
-                <ul>
-                  <li>Ver o templo Wat Kaew Korawaram e o centro sem pressa.</li>
-                  <li>Parar em café coberto se a chuva apertar.</li>
-                  <li>Usar Grab ou motorista; não é necessário alugar carro.</li>
-                  <li>Deixar compras para este dia, não para os passeios de ilha.</li>
-                </ul>
-              </div>
-            </article>
-            <article class="attraction-card">
-              <div class="photo-wrap">
-                <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Krabi%2C%20Tiger%20Cave%20Temple%2C%20Thailand.jpg" alt="Tiger Cave Temple em Krabi" />
-                <span class="duration">1h30</span>
-              </div>
-              <div class="card-copy">
-                <p class="time">12h30 - 14h00 · SE ESTIVER SEGURO</p>
-                <h3>Tiger Cave Temple · parte baixa</h3>
-                <ul>
-                  <li>Na chuva, visitar apenas o complexo inferior.</li>
-                  <li>Não subir os 1.260 degraus com piso molhado ou raios.</li>
-                  <li>Cuidado com macacos; não carregar comida à mostra.</li>
-                  <li>Ombros e joelhos cobertos.</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-          <article class="night-card">
-            <div class="night-photo">
-              <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Thai%20Massage.jpg" alt="Massagem tradicional tailandesa" />
-            </div>
-            <div class="night-copy">
-              <p class="time">14h30 - 17h00</p>
-              <h3>Spa ou aula de culinária tailandesa</h3>
-              <p>
-                Reserva feita somente quando a previsão do dia estiver clara. É o encerramento
-                coberto do plano em terra, sem comprometer a tentativa de recuperar um passeio de barco.
-              </p>
-            </div>
-          </article>
+          <div class="night-card"><strong>2ª noite no lago</strong><span>Nada de checkout precoce. A manhã seguinte continua tranquila porque o voo escolhido será à noite via Krabi.</span></div>
         </section>
 
-        <section class="country-section">
-          <p class="section-kicker">ONDE FICAR EM KRABI</p>
-          <h2>Três opções de hotel</h2>
-          <div class="hotel-grid">
-            <article class="hotel-card">
-              <div class="hotel-card-copy">
-                <span class="hotel-type">ESTADIA ICÔNICA</span>
-                <h3>Rayavadee</h3>
-                <p>Entre Railay e Phra Nang, cercado por falésias. Ideal para a noite especial e para jantar no The Grotto.</p>
-              </div>
-            </article>
-            <article class="hotel-card">
-              <div class="hotel-card-copy">
-                <span class="hotel-type">LUXO E PAISAGEM</span>
-                <h3>Banyan Tree Krabi</h3>
-                <p>Resort sofisticado de frente para o mar, com spa e estrutura forte para um dia chuvoso.</p>
-              </div>
-            </article>
-            <article class="hotel-card">
-              <div class="hotel-card-copy">
-                <span class="hotel-type">BASE PRÁTICA</span>
-                <h3>Panan Krabi Resort</h3>
-                <p>Em Ao Nang, próximo de restaurantes e dos traslados dos passeios, com ótimo custo-benefício.</p>
-              </div>
-            </article>
-          </div>
-          <div class="hotel-note">
-            Melhor equilíbrio: manter Ao Nang como base operacional e, se o orçamento permitir,
-            fazer uma noite icônica no Rayavadee. Evitar trocar de hotel no dia de Phi Phi.
-          </div>
-        </section>
-
-        <section class="country-section">
-          <p class="section-kicker">TRANSPORTE EM KRABI</p>
-          <h2>O que será necessário</h2>
+        <section class="country-section day-section alt" id="tailandia-dia23">
+          <div class="day-header"><div><p>CHEOW LAN → CHIANG MAI · 23/09</p><h2>Manhã tranquila + Krabi Airport + voo direto à noite</h2></div><div class="day-side"><div class="wake"><strong>~09h00</strong><span>Checkout padrão</span></div></div></div>
+          <div class="schedule"><span>café no lago</span><span>~09h checkout</span><span>longtail até o píer</span><span>carro para Krabi Airport</span><span>almoço / margem no aeroporto</span><span>~19h55 KBV → CNX</span><span>~21h50 Chiang Mai</span></div>
           <div class="transport-grid">
-            <article><strong>Long-tail boat</strong><span>Ao Nang–Railay em cerca de 10 a 15 minutos; normalmente sai ao completar passageiros.</span></article>
-            <article><strong>Speedboat</strong><span>Necessário para Phi Phi; reservar operador com política de reembolso por clima.</span></article>
-            <article><strong>Tour de Hong Islands</strong><span>Traslado de hotel, barco e almoço devem constar na reserva.</span></article>
-            <article><strong>Grab ou motorista</strong><span>Krabi Town, Tiger Cave e aeroporto.</span></article>
-            <article><strong>Sem carro alugado</strong><span>Não será necessário para este roteiro.</span></article>
-            <article><strong>Margem no voo</strong><span>Não marcar passeio de barco no mesmo dia de um voo importante.</span></article>
+            <article><strong>🚤 Floating resort → Ratchaprapha Pier</strong><span>~40–90+ min conforme o hotel escolhido. Não selecionar resort sem confirmar o tempo real de barco.</span></article>
+            <article><strong>🚗 Ratchaprapha Pier → Krabi Airport (KBV)</strong><span>Planejar ~2h30–3h / aproximadamente 130–155 km, com transfer privado.</span></article>
+            <article><strong>✈️ KBV → CNX</strong><span>Melhor opção pesquisada: voo direto Thai AirAsia por volta de 19h55 → 21h50/21h55. Horário deve ser reconfirmado antes da compra.</span></article>
+          </div>
+          <div class="practical-box"><h4>Por que esta rota?</h4><p>Evita sair do lago de madrugada para o voo de Surat Thani às 10h45 e evita conexão longa. O aeroporto de Krabi é usado apenas como solução aérea; Krabi não volta ao roteiro turístico.</p><span class="open-note">EM ABERTO · comprar KBV → CNX de 23/09 após confirmar horário oficial e bagagem.</span></div>
+        </section>
+
+        <section class="country-section region-banner" id="norte">
+          <p class="section-kicker">NORTE · 23 A 26/09</p><h2>Chiang Mai como base eficiente; Chiang Rai fecha a Tailândia</h2><p>Aqui a regra muda: hotel bom, confortável, bem localizado e mínimo 4★. Não gastar em villa ou resort que quase não será usado.</p>
+        </section>
+
+        <section class="country-section day-section" id="tailandia-dia24">
+          <div class="day-header"><div><p>CHIANG MAI · 24/09</p><h2>Thai Elephant Home · 1 Day Elephant Riding</h2></div><div class="day-side"><div class="wake"><strong>08h00</strong><span>Pickup</span></div></div></div>
+          <div class="schedule"><span>08h pickup</span><span>alimentação e vínculo</span><span>montaria bareback pela trilha</span><span>almoço</span><span>lama</span><span>rio + banho</span><span>chuveiro e troca</span><span>~17h Chiang Mai</span></div>
+          <div class="attraction-grid"><article class="attraction-card"><div class="photo-pair"><img loading="lazy" src="https://thaielephanthome.com/wp-content/uploads/2019/07/1-Day-Elephant-Riding-1.jpg" alt="Thai Elephant Home"><img loading="lazy" src="https://thaielephanthome.com/wp-content/uploads/2019/07/1-Day-Elephant-Riding-2.jpg" alt="Elefantes no Thai Elephant Home"></div><div class="card-copy"><h3><a href="https://thaielephanthome.com/program/1-Day-Elephant-Riding/" target="_blank" rel="noopener">Thai Elephant Home · Mae Taeng</a></h3><p>Programa já escolhido: <strong>1 Day Elephant Riding</strong>, com montaria sem cadeira, uma pessoa por elefante.</p><div class="route-step"><strong>🚗 Chiang Mai → Thai Elephant Home</strong><br>Pickup incluso dentro de Chiang Mai City; região de Mae Taeng, cerca de 1h–1h30 conforme o hotel/trânsito.</div><ul><li>Programa oficial: pickup 08h e retorno por volta de 17h.</li><li>Inclui almoço, lama, rio, banho, chuveiro e troca.</li><li>Não encaixar templo importante depois.</li></ul></div></article></div>
+          <div class="practical-box"><h4>🎒 Roupa e preparação</h4><p>Roupa que possa sujar + troca completa seca, roupa íntima extra, calçado que possa molhar, repelente, protetor, chapéu, saco para roupa molhada, dry bag e capa impermeável.</p><span class="open-note">LEMBRAR · comprar/reservar o programa oficial Thai Elephant Home.</span></div>
+        </section>
+
+        <section class="country-section day-section alt" id="tailandia-dia25">
+          <div class="day-header"><div><p>CHIANG MAI → CHIANG RAI · 25/09</p><h2>Templo Branco + Templo Azul + Wat Huay Pla Kang</h2></div><div class="day-side"><div class="wake"><strong>07h00</strong><span>Saída cedo</span></div></div></div>
+          <div class="schedule"><span>07h45 checkout</span><span>~3h–3h30 estrada</span><span>11h15 Templo Branco</span><span>12h40 almoço</span><span>13h45 Templo Azul</span><span>14h55 Huay Pla Kang</span><span>~16h30 hotel</span></div>
+          <div class="attraction-grid">
+            <article class="attraction-card"><div class="photo-pair"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Wat%20Rong%20Khun%20-%20Chiang%20Rai.jpg" alt="Wat Rong Khun"><img loading="lazy" src="https://a.cdn-hotels.com/gdcs/production47/d803/d574ada4-aea1-4f43-a2d8-01ea25c88ef8.jpg?h=533&amp;impolicy=fcrop&amp;q=medium&amp;w=800" alt="Templo Branco em Chiang Rai"></div><div class="card-copy"><span class="required-badge">OBRIGATÓRIO</span><p class="time">~11h15–12h30</p><h3>Wat Rong Khun · Templo Branco</h3><div class="route-step"><strong>🚗 Chiang Mai → Wat Rong Khun</strong><br>⏱️ ~3h–3h30 · 📍 ~180 km.</div><ul><li>Não acelerar a ponte e os detalhes.</li><li>Fotos não são permitidas dentro do salão principal.</li><li>Ombros e joelhos cobertos.</li></ul></div></article>
+            <article class="attraction-card"><div class="photo-pair"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Wat%20Rong%20Suea%20Ten%20%2849724986806%29.jpg" alt="Wat Rong Suea Ten"><img loading="lazy" src="https://images.unsplash.com/photo-1613919113640-25732ec5e61f?auto=format&amp;fit=crop&amp;w=1200&amp;q=82" alt="Templo azul no norte da Tailândia"></div><div class="card-copy"><p class="time">~13h45–14h35</p><h3>Wat Rong Suea Ten · Templo Azul</h3><div class="route-step"><strong>🚗 Templo Branco → Templo Azul</strong><br>⏱️ ~25–30 min · 📍 ~15 km.</div><p>Visita rápida, focada no salão principal, fachada e esculturas azuis.</p></div></article>
+            <article class="attraction-card"><div class="photo-pair"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Wat%20Huay%20Pla%20Kang%20%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AB%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%9B%E0%B8%A5%E0%B8%B2%E0%B8%81%E0%B8%B1%E0%B9%89%E0%B8%87%20Chiang%20Rai%20%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2%2001.jpg" alt="Wat Huay Pla Kang"><img loading="lazy" src="https://image-worker.mindtrip.ai/image-resize/format%3Dwebp%2Cw%3D1200/https%3A/images.mindtrip.ai/attractions/1bc4/b1fa/4db7/cab2/24b7/d913/0f7c/9c53" alt="Pagoda de Wat Huay Pla Kang"></div><div class="card-copy"><p class="time">~14h55–15h55</p><h3>Wat Huay Pla Kang</h3><div class="route-step"><strong>🚗 Templo Azul → Wat Huay Pla Kang</strong><br>⏱️ ~15–20 min · 📍 ~8 km.</div><ul><li>Usar elevador da grande estátua se estiver operando.</li><li>Visitar a pagoda de nove andares se houver tempo.</li></ul></div></article>
+          </div>
+          <div class="practical-box"><h4>🏨 Chiang Rai</h4><p>Uma noite. Hotel bom 4★+; <strong>The Legend Chiang Rai</strong> continua candidato se o preço fizer sentido. Não é noite para pagar por resort que não será usado.</p><span class="open-note">EM ABERTO · confirmar hotel + motorista privado Chiang Mai → Chiang Rai levando malas durante todo o circuito.</span></div>
+        </section>
+
+        <section class="country-section day-section" id="tailandia-dia26">
+          <div class="day-header"><div><p>CHIANG RAI → INDONÉSIA · 26/09</p><h2>Saída da Tailândia</h2></div><div class="day-side"><div class="wake"><strong>EM ABERTO</strong><span>Voo internacional</span></div></div></div>
+          <div class="transport-grid"><article><strong>✈️ CEI → Indonésia</strong><span>Primeira cidade da Indonésia ainda será escolhida pela melhor combinação de rota, horário e roteiro. Bali continua como candidata principal, mas a entrada pode mudar se outra cidade for logisticamente superior.</span></article></div>
+          <div class="practical-box"><h4>Regra</h4><p>Não comprar este trecho antes de fechar a malha seguinte. A Tailândia termina em 26/09 sem reduzir os dias destinados aos demais países.</p><span class="open-note">EM ABERTO · pesquisar e comprar Chiang Rai → Indonésia.</span></div>
+        </section>
+
+        <section class="country-section">
+          <p class="section-kicker">HOSPEDAGEM · REGRA DE GASTO</p><h2>Luxo só onde teremos tempo para usar</h2>
+          <div class="hotel-grid">
+            <article class="hotel-card featured"><span class="hotel-label">KOH SAMUI · INVESTIR</span><h3>Resort especial</h3><p>Villa ou suíte com piscina privativa, praia/vista e serviço excelente. O hotel faz parte do roteiro.</p><strong>18→21/09 · 3 noites</strong></article>
+            <article class="hotel-card featured"><span class="hotel-label">CHEOW LAN · INVESTIR</span><h3>Floating resort</h3><p>Quarto bonito, banheiro privativo e conforto real. Duas noites justificam a experiência.</p><strong>21→23/09 · 2 noites</strong></article>
+            <article class="hotel-card"><span class="hotel-label">CHIANG MAI · PRÁTICO</span><h3>4★+ bem localizado</h3><p>Chegada tarde em 23/09 e dia inteiro fora em 24/09. Prioridade é conforto e logística.</p><strong>23→25/09 · 2 noites</strong></article>
+            <article class="hotel-card"><span class="hotel-label">CHIANG RAI · PRÁTICO</span><h3>The Legend ou equivalente</h3><p>Uma noite após o circuito dos templos; não pagar prêmio por estrutura que quase não será usada.</p><strong>25→26/09 · 1 noite</strong></article>
           </div>
         </section>
 
-        <section class="country-section food">
-          <p class="section-kicker">ONDE COMER EM KRABI</p>
-          <h2>Três almoços e três jantares</h2>
-          <div class="food-columns">
-            <div>
-              <h3>Almoço</h3>
-              <article><strong>Thongyib Thongyod</strong><span>Comida tailandesa e frutos do mar em Ao Nang.</span></article>
-              <article><strong>Sea Salt Krabi</strong><span>Opção confortável à beira-mar para um almoço mais lento.</span></article>
-              <article><strong>D-Plee</strong><span>Restaurante do Panan, prático para dias em que a previsão mudar o roteiro.</span></article>
-            </div>
-            <div>
-              <h3>Jantar</h3>
-              <article><strong>The Grotto</strong><span>Jantar icônico sob a falésia; reservar e confirmar a regra de acesso para hóspedes do Rayavadee.</span></article>
-              <article><strong>Lae Lay Grill</strong><span>Frutos do mar e vista elevada de Ao Nang; pedir mesa externa apenas se o tempo estiver firme.</span></article>
-              <article><strong>The Crab House</strong><span>Frutos do mar em Ao Nang, bom para uma noite sem logística complicada.</span></article>
-            </div>
+        <section class="country-section">
+          <p class="section-kicker">LEMBRAR / COMPRAR</p><h2>Pendências da nova Tailândia</h2>
+          <div class="transport-grid">
+            <article><strong>18/09 · BKK → USM</strong><span>Pesquisar melhor voo direto pela manhã e comprar.</span></article>
+            <article><strong>Ang Thong</strong><span>Comprar tour com pickup e foco em paisagem, mirantes e kayak; snorkel não é prioridade.</span></article>
+            <article><strong>21/09 · Samui → Cheow Lan</strong><span>Fechar ferry + transfer privado + barco até o floating resort.</span></article>
+            <article><strong>Floating resort</strong><span>Escolher opção realmente boa para 2 noites e confirmar tempo de barco até o píer.</span></article>
+            <article><strong>23/09 · KBV → CNX</strong><span>Reconfirmar o direto ~19h55 → ~21h50 e comprar com bagagem adequada.</span></article>
+            <article><strong>Thai Elephant Home</strong><span>Reservar 1 Day Elephant Riding.</span></article>
+            <article><strong>25/09 · motorista privado</strong><span>Chiang Mai → Chiang Rai com malas + três templos.</span></article>
+            <article><strong>26/09 · CEI → Indonésia</strong><span>Fechar somente após definir a melhor porta de entrada da Indonésia.</span></article>
           </div>
         </section>
-        <footer class="country-footer"><strong>Tailândia</strong><span>R&amp;M · Ásia 2026</span></footer>
+
+        <footer class="country-footer"><strong>Tailândia</strong><span>R&amp;M · 14→26/09/2026</span></footer>
       </div>
 
       <div class="view" data-view="indonesia">
