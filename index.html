@@ -1685,5 +1685,114 @@ const proofData={"qatar":{"title":"Passagens Qatar · ida e volta","images":[{"l
   });
 })();
 </script>
-\n<script id="where-now-js">\n(function(){\n  const button=document.getElementById('goNowButton');\n  const label=document.getElementById('goNowLabel');\n  const sub=document.getElementById('goNowSub');\n  if(!button||!label||!sub) return;\n\n  const phases=[\n    {until:'2026-09-25T10:00:00Z',tz:'Asia/Bangkok',view:'tailandia',prefix:'tailandia-dia',month:9},\n    {until:'2026-10-01T00:25:00Z',tz:'Asia/Makassar',view:'indonesia',prefix:'bali-dia',month:9},\n    {until:'2026-10-05T09:55:00Z',tz:'Asia/Seoul',view:'coreia',prefix:'seul-dia',month:10},\n    {until:'2026-10-16T08:25:00Z',tz:'Asia/Tokyo',view:'japao',prefix:'jp',month:10}\n  ];\n  const tripStart=Date.parse('2026-09-13T17:00:00Z');\n  const tripEnd=Date.parse('2026-10-16T08:25:00Z');\n\n  function parts(date,tz){\n    const fmt=new Intl.DateTimeFormat('en-GB',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'});\n    const out={};\n    fmt.formatToParts(date).forEach(p=>{if(p.type!=='literal') out[p.type]=p.value});\n    return {year:+out.year,month:+out.month,day:+out.day,hour:+out.hour,minute:+out.minute};\n  }\n  function phaseFor(date){\n    const t=date.getTime();\n    if(t<tripStart||t>tripEnd) return null;\n    return phases.find(p=>t<Date.parse(p.until))||null;\n  }\n  function sectionIdFor(p,d){\n    if(p.view==='japao') return 'jp'+String(d.day).padStart(2,'0');\n    if(p.view==='coreia') return 'seul-dia'+d.day;\n    return p.prefix+d.day;\n  }\n  function minutesFromText(text,previous){\n    const normalized=(text||'').toLowerCase().replace(/\u00a0/g,' ');\n    let m=normalized.match(/(?:~|\b)(\d{1,2})(?:h|:)(\d{2})?/);\n    if(m) return (+m[1])*60+(m[2]?+m[2]:0);\n    if(/meio do dia/.test(normalized)) return 12*60;\n    if(/manh[ãa]/.test(normalized)) return 9*60;\n    if(/tarde/.test(normalized)) return 15*60;\n    if(/noite/.test(normalized)) return 19*60;\n    if(/evento/.test(normalized)) return 10*60;\n    if(/depois|oeste|leste|primeira parte/.test(normalized)) return previous==null?10*60:previous+90;\n    return previous==null?null:previous+90;\n  }\n  function chooseTarget(section,nowMinutes){\n    const cards=[...section.querySelectorAll('.attraction-card')];\n    if(!cards.length) return section;\n    const timed=[];\n    let prev=null;\n    cards.forEach((card,index)=>{\n      const timeEl=card.querySelector('.time');\n      let start=minutesFromText(timeEl?timeEl.textContent:'',prev);\n      if(start!=null&&prev!=null&&start<=prev) start=prev+45;\n      if(start!=null) prev=start;\n      timed.push({card,start,index});\n    });\n    const valid=timed.filter(x=>x.start!=null);\n    if(!valid.length) return section;\n    let pick=valid[0];\n    for(const x of valid){ if(x.start<=nowMinutes) pick=x; else break; }\n    if(nowMinutes<valid[0].start-45) return section;\n    return pick.card;\n  }\n  function titleFor(target,section){\n    if(target!==section){\n      const h=target.querySelector('h3');\n      if(h) return h.textContent.trim();\n    }\n    const h=section.querySelector('.day-header h2');\n    return h?h.textContent.trim():'Roteiro de hoje';\n  }\n  function locationFor(section){\n    const spans=[...section.querySelectorAll('.day-meta span')];\n    const loc=spans.find(x=>x.textContent.includes('📍'));\n    return loc?loc.textContent.replace('📍','').trim():'';\n  }\n  function activateAndScroll(target,section,phase){\n    document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.dataset.view===phase.view));\n    const nav=document.getElementById('navLinks'); if(nav) nav.classList.remove('open');\n    document.body.classList.remove('no-scroll');\n    const base='?pais='+phase.view;\n    history.pushState({country:phase.view,anchor:section.id},'',base+'#'+section.id);\n    requestAnimationFrame(()=>{\n      target.scrollIntoView({behavior:'smooth',block:'start'});\n      target.classList.remove('now-target-flash');\n      void target.offsetWidth;\n      target.classList.add('now-target-flash');\n      setTimeout(()=>target.classList.remove('now-target-flash'),2400);\n    });\n  }\n  function refresh(){\n    const now=new Date();\n    const phase=phaseFor(now);\n    if(!phase){button.hidden=true;return;}\n    const d=parts(now,phase.tz);\n    const section=document.getElementById(sectionIdFor(phase,d));\n    if(!section){button.hidden=true;return;}\n    const target=chooseTarget(section,d.hour*60+d.minute);\n    const title=titleFor(target,section);\n    const loc=locationFor(section);\n    label.textContent='Agora: '+title;\n    sub.textContent=String(d.day).padStart(2,'0')+'/'+String(d.month).padStart(2,'0')+' · '+String(d.hour).padStart(2,'0')+':'+String(d.minute).padStart(2,'0')+(loc?' · '+loc:'');\n    button.hidden=false;\n    button.onclick=()=>activateAndScroll(target,section,phase);\n  }\n  refresh();\n  setInterval(refresh,60000);\n})();\n</script>\n</body>
+
+<script id="where-now-js">
+(function(){
+  const button=document.getElementById('goNowButton');
+  const label=document.getElementById('goNowLabel');
+  const sub=document.getElementById('goNowSub');
+  if(!button||!label||!sub) return;
+
+  const phases=[
+    {until:'2026-09-25T10:00:00Z',tz:'Asia/Bangkok',view:'tailandia',prefix:'tailandia-dia',month:9},
+    {until:'2026-10-01T00:25:00Z',tz:'Asia/Makassar',view:'indonesia',prefix:'bali-dia',month:9},
+    {until:'2026-10-05T09:55:00Z',tz:'Asia/Seoul',view:'coreia',prefix:'seul-dia',month:10},
+    {until:'2026-10-16T08:25:00Z',tz:'Asia/Tokyo',view:'japao',prefix:'jp',month:10}
+  ];
+  const tripStart=Date.parse('2026-09-13T17:00:00Z');
+  const tripEnd=Date.parse('2026-10-16T08:25:00Z');
+
+  function parts(date,tz){
+    const fmt=new Intl.DateTimeFormat('en-GB',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'});
+    const out={};
+    fmt.formatToParts(date).forEach(p=>{if(p.type!=='literal') out[p.type]=p.value});
+    return {year:+out.year,month:+out.month,day:+out.day,hour:+out.hour,minute:+out.minute};
+  }
+  function phaseFor(date){
+    const t=date.getTime();
+    if(t<tripStart||t>tripEnd) return null;
+    return phases.find(p=>t<Date.parse(p.until))||null;
+  }
+  function sectionIdFor(p,d){
+    if(p.view==='japao') return 'jp'+String(d.day).padStart(2,'0');
+    if(p.view==='coreia') return 'seul-dia'+d.day;
+    return p.prefix+d.day;
+  }
+  function minutesFromText(text,previous){
+    const normalized=(text||'').toLowerCase().replace(/\u00a0/g,' ');
+    let m=normalized.match(/(?:~|\b)(\d{1,2})(?:h|:)(\d{2})?/);
+    if(m) return (+m[1])*60+(m[2]?+m[2]:0);
+    if(/meio do dia/.test(normalized)) return 12*60;
+    if(/manh[ãa]/.test(normalized)) return 9*60;
+    if(/tarde/.test(normalized)) return 15*60;
+    if(/noite/.test(normalized)) return 19*60;
+    if(/evento/.test(normalized)) return 10*60;
+    if(/depois|oeste|leste|primeira parte/.test(normalized)) return previous==null?10*60:previous+90;
+    return previous==null?null:previous+90;
+  }
+  function chooseTarget(section,nowMinutes){
+    const cards=[...section.querySelectorAll('.attraction-card')];
+    if(!cards.length) return section;
+    const timed=[];
+    let prev=null;
+    cards.forEach((card,index)=>{
+      const timeEl=card.querySelector('.time');
+      let start=minutesFromText(timeEl?timeEl.textContent:'',prev);
+      if(start!=null&&prev!=null&&start<=prev) start=prev+45;
+      if(start!=null) prev=start;
+      timed.push({card,start,index});
+    });
+    const valid=timed.filter(x=>x.start!=null);
+    if(!valid.length) return section;
+    let pick=valid[0];
+    for(const x of valid){ if(x.start<=nowMinutes) pick=x; else break; }
+    if(nowMinutes<valid[0].start-45) return section;
+    return pick.card;
+  }
+  function titleFor(target,section){
+    if(target!==section){
+      const h=target.querySelector('h3');
+      if(h) return h.textContent.trim();
+    }
+    const h=section.querySelector('.day-header h2');
+    return h?h.textContent.trim():'Roteiro de hoje';
+  }
+  function locationFor(section){
+    const spans=[...section.querySelectorAll('.day-meta span')];
+    const loc=spans.find(x=>x.textContent.includes('📍'));
+    return loc?loc.textContent.replace('📍','').trim():'';
+  }
+  function activateAndScroll(target,section,phase){
+    document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.dataset.view===phase.view));
+    const nav=document.getElementById('navLinks'); if(nav) nav.classList.remove('open');
+    document.body.classList.remove('no-scroll');
+    const base='?pais='+phase.view;
+    history.pushState({country:phase.view,anchor:section.id},'',base+'#'+section.id);
+    requestAnimationFrame(()=>{
+      target.scrollIntoView({behavior:'smooth',block:'start'});
+      target.classList.remove('now-target-flash');
+      void target.offsetWidth;
+      target.classList.add('now-target-flash');
+      setTimeout(()=>target.classList.remove('now-target-flash'),2400);
+    });
+  }
+  function refresh(){
+    const now=new Date();
+    const phase=phaseFor(now);
+    if(!phase){button.hidden=true;return;}
+    const d=parts(now,phase.tz);
+    const section=document.getElementById(sectionIdFor(phase,d));
+    if(!section){button.hidden=true;return;}
+    const target=chooseTarget(section,d.hour*60+d.minute);
+    const title=titleFor(target,section);
+    const loc=locationFor(section);
+    label.textContent='Agora: '+title;
+    sub.textContent=String(d.day).padStart(2,'0')+'/'+String(d.month).padStart(2,'0')+' · '+String(d.hour).padStart(2,'0')+':'+String(d.minute).padStart(2,'0')+(loc?' · '+loc:'');
+    button.hidden=false;
+    button.onclick=()=>activateAndScroll(target,section,phase);
+  }
+  refresh();
+  setInterval(refresh,60000);
+})();
+</script>\n</body>
 </html>
