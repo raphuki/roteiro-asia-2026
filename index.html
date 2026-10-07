@@ -45,6 +45,59 @@ const p=document.getElementById('panel');
 document.getElementById('fab').onclick=()=>p.style.display='block';
 document.getElementById('close').onclick=()=>p.style.display='none';
 p.onclick=e=>{if(e.target===p)p.style.display='none'};
+
+function card(title,desc,badge=''){
+  return '<article class="attraction-card"><div class="card-copy">'+
+    (badge?'<span class="time">'+badge+'</span>':'')+
+    '<h3>'+title+'</h3><p>'+desc+'</p></div></article>';
+}
+function routeBox(label,route,url){
+  return '<div class="day-quick compact-quick"><article class="route-summary"><strong>🗺️ '+label+'</strong><span>'+route+'</span><a class="route-open" href="'+url+'" target="_blank" rel="noopener">Abrir rota no Google Maps</a></article></div>';
+}
+f.addEventListener('load',()=>{
+  try{
+    const d=f.contentDocument;
+    if(!d) return;
+
+    const nara=d.getElementById('jp08');
+    if(nara){
+      const route='Kintetsu-Nara → Nakatanidou → Kōfuku-ji → Sarusawa Pond → Nara Park → Nandaimon → Tōdai-ji / Grande Buda → Nigatsudō → Tamukeyama Hachimangu → Kasuga Taisha → Naramachi → Kintetsu-Nara';
+      const url='https://www.google.com/maps/dir/?api=1&origin=Kintetsu-Nara+Station&destination=Kintetsu-Nara+Station&travelmode=walking&waypoints=Nakatanidou%7CKofuku-ji%7CSarusawa+Pond%7CNara+Park%7CTodai-ji+Nandaimon+Gate%7CTodai-ji+Daibutsuden%7CNigatsudo%7CTamukeyama+Hachimangu%7CKasuga+Taisha%7CNaramachi';
+      const oldQuick=nara.querySelector('.day-quick');
+      if(oldQuick) oldQuick.outerHTML=routeBox('Rota do dia',route,url);
+      const grid=nara.querySelector('.attraction-grid');
+      if(grid) grid.innerHTML=
+        card('Nakatanidou','Parada rápida para o famoso mochi de Nara.')+
+        card('Kōfuku-ji','Complexo histórico no caminho entre a estação e o parque.')+
+        card('Sarusawa Pond','Lago ao lado de Kōfuku-ji, bom para uma foto rápida.')+
+        card('Nara Park','Caminhada pelo parque e encontro com os cervos.')+
+        card('Tōdai-ji Nandaimon Gate','Grande portão de entrada do complexo do Tōdai-ji.')+
+        card('Tōdai-ji · Daibutsuden','Grande Buda de Nara. Ingresso comprado no local.')+
+        card('Nigatsudō','Templo elevado com vista sobre Nara, próximo ao Tōdai-ji.')+
+        card('Tamukeyama Hachimangu','Santuário no caminho natural entre Nigatsudō e Kasuga Taisha.')+
+        card('Kasuga Taisha','Santuário conhecido pelas lanternas de pedra e bronze.')+
+        card('Naramachi','Bairro histórico com ruas tradicionais, lojas e cafés.');
+    }
+
+    const kyoto=d.getElementById('jp09');
+    if(kyoto){
+      const route='Kyoto Station → Fushimi Inari Taisha → Kiyomizu-dera → Ninenzaka → Sannenzaka → Gion → teamLab Biovortex Kyoto → Pontocho → Pontocho Robin';
+      const url='https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Pontocho+Robin&waypoints=Fushimi+Inari+Taisha%7CKiyomizu-dera%7CNinenzaka%7CSannenzaka%7CGion%7CteamLab+Biovortex+Kyoto%7CPontocho';
+      const oldQuick=kyoto.querySelector('.day-quick');
+      if(oldQuick) oldQuick.outerHTML=routeBox('Rota do dia',route,url);
+      const grid=kyoto.querySelector('.attraction-grid');
+      if(grid) grid.innerHTML=
+        card('Fushimi Inari Taisha','Percorrer o trecho mais fotogênico dos torii e seguir, sem necessidade de subir a montanha inteira.')+
+        card('Kiyomizu-dera','Templo na encosta com varanda de madeira e vista sobre Kyoto.')+
+        card('Ninenzaka','Rua histórica tradicional logo na descida de Kiyomizu-dera.')+
+        card('Sannenzaka','Continuação natural da caminhada, com lojas e construções tradicionais.')+
+        card('Gion','Ruas históricas e arquitetura tradicional. Seguir de forma progressiva.')+
+        card('teamLab Biovortex Kyoto','2 adultos · 2 ingressos emitidos · QR codes disponíveis offline.','15:30 · FIXO')+
+        card('Pontocho','Viela histórica junto ao rio Kamo; passeio antes do jantar.')+
+        card('Pontocho Robin','2 pessoas · pré-pago · riverside / kawayuka.','18:30 · FIXO');
+    }
+  }catch(e){}
+});
 </script>
 </body>
 </html>
