@@ -23,17 +23,23 @@ h2{margin:0 0 6px} h3{margin:20px 0 8px}.x{float:right;border:0;background:#eee;
   <div class="card">
     <button class="x" id="close">×</button>
     <h2>Japão · rotas atualizadas</h2>
-    <div class="small">Versão consolidada em 07/10/2026</div>
+    <div class="small">Versão consolidada em 08/10/2026</div>
 
     <h3>08/10 · Nara</h3>
     <div class="route">Kintetsu-Nara Station → Nakatanidou → Kōfuku-ji → Sarusawa Pond → Nara Park → Tōdai-ji Nandaimon Gate → Tōdai-ji / Daibutsuden → Nigatsudō → Tamukeyama Hachimangu → Kasuga Taisha → Naramachi → Kintetsu-Nara Station</div>
     <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=Kintetsu-Nara+Station&destination=Kintetsu-Nara+Station&travelmode=walking&waypoints=Nakatanidou%7CKofuku-ji%7CSarusawa+Pond%7CNara+Park%7CTodai-ji+Nandaimon+Gate%7CTodai-ji+Daibutsuden%7CNigatsudo%7CTamukeyama+Hachimangu%7CKasuga+Taisha%7CNaramachi">Abrir rota de Nara no Google Maps</a>
 
-    <h3>09/10 · Kyoto</h3>
-    <div class="route">Kyoto Station → Fushimi Inari Taisha → Kiyomizu-dera → Ninenzaka → Sannenzaka → Gion → teamLab Biovortex Kyoto → Pontocho → Pontocho Robin</div>
+    <h3>09/10 · Kyoto completo</h3>
+    <div class="route">Osaka → Arashiyama Bamboo Grove → Kinkaku-ji → Fushimi Inari Taisha → Kiyomizu-dera → Ninenzaka → Sannenzaka → Gion → teamLab Biovortex Kyoto → Pontocho → Pontocho Robin</div>
+    <div class="fix"><b>Plano acelerado</b><br>06:30 sair de Osaka · 07:30–08:30 Arashiyama · 09:00–09:45 Kinkaku-ji · 10:30–11:15 Fushimi Inari · 12:00–13:00 Kiyomizu-dera · 13:00–14:00 Ninenzaka + Sannenzaka · 14:00–14:45 Gion</div>
     <div class="fix"><b>15:30 · teamLab Biovortex Kyoto</b><br>2 adultos · 2 ingressos emitidos · QR codes offline</div>
     <div class="fix"><b>18:30 · Pontocho Robin</b><br>2 pessoas · pré-pago · riverside / kawayuka</div>
-    <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Pontocho+Robin&waypoints=Fushimi+Inari+Taisha%7CKiyomizu-dera%7CNinenzaka%7CSannenzaka%7CGion%7CteamLab+Biovortex+Kyoto%7CPontocho">Abrir rota de Kyoto no Google Maps</a>
+    <div class="fix"><b>Transporte em Kyoto</b><br>Usar Uber/táxi nos deslocamentos longos para ganhar tempo, especialmente Arashiyama → Kinkaku-ji e oeste → leste.</div>
+    <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=Arashiyama+Bamboo+Grove&destination=Pontocho+Robin&waypoints=Kinkaku-ji%7CFushimi+Inari+Taisha%7CKiyomizu-dera%7CNinenzaka%7CSannenzaka%7CGion%7CteamLab+Biovortex+Kyoto%7CPontocho">Abrir rota de Kyoto no Google Maps</a>
+
+    <h3>10/10 · Osaka → Tóquio</h3>
+    <div class="route">Manhã livre em Osaka → buscar malas no hotel → Shin-Osaka → Nozomi 258 → Tokyo</div>
+    <div class="fix"><b>15:00 · Nozomi 258</b><br>Shin-Osaka → Tokyo 17:27 · Green Car · confirmado no Klook</div>
 
     <a class="btn" style="background:#555" href="prioridades_v2.html">Abrir controle completo atualizado</a>
   </div>
@@ -81,12 +87,14 @@ f.addEventListener('load',()=>{
 
     const kyoto=d.getElementById('jp09');
     if(kyoto){
-      const route='Kyoto Station → Fushimi Inari Taisha → Kiyomizu-dera → Ninenzaka → Sannenzaka → Gion → teamLab Biovortex Kyoto → Pontocho → Pontocho Robin';
-      const url='https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Pontocho+Robin&waypoints=Fushimi+Inari+Taisha%7CKiyomizu-dera%7CNinenzaka%7CSannenzaka%7CGion%7CteamLab+Biovortex+Kyoto%7CPontocho';
+      const route='Osaka → Arashiyama Bamboo Grove → Kinkaku-ji → Fushimi Inari Taisha → Kiyomizu-dera → Ninenzaka → Sannenzaka → Gion → teamLab Biovortex Kyoto → Pontocho → Pontocho Robin';
+      const url='https://www.google.com/maps/dir/?api=1&origin=Arashiyama+Bamboo+Grove&destination=Pontocho+Robin&waypoints=Kinkaku-ji%7CFushimi+Inari+Taisha%7CKiyomizu-dera%7CNinenzaka%7CSannenzaka%7CGion%7CteamLab+Biovortex+Kyoto%7CPontocho';
       const oldQuick=kyoto.querySelector('.day-quick');
       if(oldQuick) oldQuick.outerHTML=routeBox('Rota do dia',route,url);
       const grid=kyoto.querySelector('.attraction-grid');
       if(grid) grid.innerHTML=
+        card('Arashiyama Bamboo Grove','Caminhada cedo pelo bosque de bambu e arredores.','07:30–08:30')+
+        card('Kinkaku-ji','Pavilhão Dourado. Visita objetiva logo na abertura.','09:00–09:45')+
         card('Fushimi Inari Taisha','Percorrer o trecho mais fotogênico dos torii e seguir, sem necessidade de subir a montanha inteira.')+
         card('Kiyomizu-dera','Templo na encosta com varanda de madeira e vista sobre Kyoto.')+
         card('Ninenzaka','Rua histórica tradicional logo na descida de Kiyomizu-dera.')+
@@ -95,6 +103,27 @@ f.addEventListener('load',()=>{
         card('teamLab Biovortex Kyoto','2 adultos · 2 ingressos emitidos · QR codes disponíveis offline.','15:30 · FIXO')+
         card('Pontocho','Viela histórica junto ao rio Kamo; passeio antes do jantar.')+
         card('Pontocho Robin','2 pessoas · pré-pago · riverside / kawayuka.','18:30 · FIXO');
+    }
+
+    const tokyoDay=d.getElementById('jp10');
+    if(tokyoDay){
+      // 10/10 agora é somente Osaka → Tóquio; Kyoto oeste foi incorporado em 09/10.
+      const headings=[...tokyoDay.querySelectorAll('h1,h2,h3')];
+      for(const h of headings){
+        if(/Kyoto oeste|Tóquio|Tokyo/i.test(h.textContent||'')) h.textContent='Osaka → Tóquio';
+      }
+      // Oculta cards antigos de Kyoto oeste para evitar duplicidade.
+      [...tokyoDay.querySelectorAll('article,.attraction-card,.prep-card,.card')].forEach(el=>{
+        const t=(el.textContent||'');
+        if(/Arashiyama|Kinkaku-ji|Kinkakuji|Kyoto oeste/i.test(t)) el.style.display='none';
+      });
+      const oldQuick=tokyoDay.querySelector('.day-quick');
+      if(oldQuick) oldQuick.outerHTML=routeBox('Rota do dia','Manhã livre em Osaka → buscar malas no hotel → Shin-Osaka → Nozomi 258 15:00 → Tokyo 17:27','https://www.google.com/maps/dir/?api=1&origin=Mercure+Tokyu+Stay+Osaka+Namba&destination=Shin-Osaka+Station');
+      const grid=tokyoDay.querySelector('.attraction-grid');
+      if(grid) grid.innerHTML=
+        card('Manhã livre em Osaka','Kyoto oeste foi transferido para 09/10. Aproveitar a manhã sem deslocamento extra.')+
+        card('Buscar malas no hotel','Pegar a bagagem antes de seguir para Shin-Osaka.')+
+        card('Shin-Osaka → Tokyo','Nozomi 258 · saída 15:00 · chegada 17:27 · Green Car · confirmado no Klook.','15:00 · FIXO');
     }
   }catch(e){}
 });
