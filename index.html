@@ -85,7 +85,7 @@ f.addEventListener('load',()=>{
 
     const tokyoDay=d.getElementById('jp10');
     if(tokyoDay){
-      // 10/10 agora é somente Osaka → Tóquio; Kyoto oeste foi incorporado em 09/10.
+      // 10/10 final: somente Osaka → Tóquio.
       const headings=[...tokyoDay.querySelectorAll('h1,h2,h3')];
       for(const h of headings){
         if(/Kyoto oeste|Tóquio|Tokyo/i.test(h.textContent||'')) h.textContent='Osaka → Tóquio';
@@ -99,7 +99,7 @@ f.addEventListener('load',()=>{
       if(oldQuick) oldQuick.outerHTML=routeBox('Rota do dia','Manhã livre em Osaka → buscar malas no hotel → Shin-Osaka → Nozomi 258 15:00 → Tokyo 17:27','https://www.google.com/maps/dir/?api=1&origin=Mercure+Tokyu+Stay+Osaka+Namba&destination=Shin-Osaka+Station');
       const grid=tokyoDay.querySelector('.attraction-grid');
       if(grid) grid.innerHTML=
-        card('Manhã livre em Osaka','Kyoto oeste foi transferido para 09/10. Aproveitar a manhã sem deslocamento extra.')+
+        card('Manhã livre em Osaka','Sem Kyoto neste dia. Café, descanso ou passeio leve perto do hotel.','MANHÃ LIVRE')+
         card('Buscar malas no hotel','Pegar a bagagem antes de seguir para Shin-Osaka.')+
         card('Shin-Osaka → Tokyo','Nozomi 258 · saída 15:00 · chegada 17:27 · Green Car · confirmado no Klook.','15:00 · FIXO');
     }
