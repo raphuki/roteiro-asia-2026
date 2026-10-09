@@ -24,7 +24,7 @@ h2{margin:0 0 6px} h3{margin:20px 0 8px}.x{float:right;border:0;background:#eee;
   <div class="card">
     <button class="x" id="close">×</button>
     <h2>Japão · rotas atualizadas</h2>
-    <div class="small">Versão consolidada em 08/10/2026</div>
+    <div class="small">Versão consolidada em 09/10/2026</div>
     <h3>09/10 · Kyoto completo</h3>
     <div class="route">Osaka → Arashiyama Bamboo Grove → Kinkaku-ji → Fushimi Inari Taisha → Kiyomizu-dera → Ninenzaka → Sannenzaka → Gion → teamLab Biovortex Kyoto → Pontocho → Pontocho Robin</div>
     <div class="fix"><b>Plano acelerado</b><br>06:30 sair de Osaka · 07:30–08:30 Arashiyama · 09:00–09:45 Kinkaku-ji · 10:30–11:15 Fushimi Inari · 12:00–13:00 Kiyomizu-dera · 13:00–14:00 Ninenzaka + Sannenzaka · 14:00–14:45 Gion</div>
@@ -36,6 +36,30 @@ h2{margin:0 0 6px} h3{margin:20px 0 8px}.x{float:right;border:0;background:#eee;
     <h3>10/10 · Osaka → Tóquio</h3>
     <div class="route">Manhã livre em Osaka → buscar malas no hotel → Shin-Osaka → Nozomi 258 → Tokyo</div>
     <div class="fix"><b>15:00 · Nozomi 258</b><br>Shin-Osaka → Tokyo 17:27 · Green Car · confirmado no Klook</div>
+
+    <h3>11/10 · Monte Fuji</h3>
+    <div class="route">Mitsui Garden Hotel Roppongi Tokyo Premier → Monte Fuji / Lago Kawaguchiko → hotel</div>
+    <div class="fix"><b>Klook · MTX697743 · CONFIRMADO</b><br>Carro particular 1–5 pessoas · inglês · R$ 2.400,68 pagos · pickup no hotel · janela informada 07:00–09:00; aguardar horário exato do operador.</div>
+    <div class="fix"><b>Reserva antiga ZZS873918</b><br>Cancelada pelo usuário; reembolso em processamento na Klook.</div>
+
+    <h3>12/10 · Harajuku + Shibuya</h3>
+    <div class="route">Capy Neko Harajuku → Harajuku/Takeshita → Shibuya PARCO → Nintendo TOKYO + Pokémon Center Shibuya → Shibuya</div>
+    <div class="fix"><b>11:30 · Capy Neko Harajuku · CONFIRMADO E PRÉ-PAGO</b><br>2 pessoas · 40 min · ¥7.700 pagos · reserva T37CHC · 1-6-10 Jingumae, B Square Takeshita Street 2F, Shibuya · tel. 03-6271-5127 · usar meias (ou comprar no local por ¥250).</div>
+    <div class="fix"><b>Shibuya Sky REMOVIDO</b><br>Sem ingressos disponíveis para 12/10. Não substituir por outro mirante neste momento.</div>
+
+    <h3>13/10 · DisneySea + teamLab Planets</h3>
+    <div class="route">Tokyo DisneySea + teamLab Planets TOKYO Premium Pass</div>
+    <div class="fix"><b>DisneySea confirmado</b><br>2 adultos · 13/10 · ¥19.620 pagos.</div>
+    <div class="fix"><b>teamLab Planets confirmado</b><br>Premium Pass · 2 pessoas · ¥24.000 pagos · entrada válida dentro da janela 08:00–21:00.</div>
+
+    <h3>14/10 · Tóquio urbano</h3>
+    <div class="route">Asakusa → Akihabara → Pokémon Center Tokyo DX → OWNDAYS Marronnier Gate Ginza → Uniqlo Ginza → Ginza → fotos externas Tokyo Tower → hotel</div>
+    <div class="fix"><b>Tokyo Tower</b><br>Apenas fotos externas rápidas: Staircase (35.657059, 139.745761) + 7-Eleven (35.653083, 139.745201). Sem subida programada.</div>
+
+    <h3>15/10 · Harry Potter + apothéose</h3>
+    <div class="route">Warner Bros. Studio Tour Tokyo → janela livre → apothéose</div>
+    <div class="fix"><b>11:30 · Warner Bros.</b><br>2 adultos · confirmado · ¥13.200 pagos.</div>
+    <div class="fix"><b>19:00 · apothéose</b><br>2 pessoas · mesa · 49F Toranomon Hills Station Tower · confirmado.</div>
 
     <a class="btn" style="background:#555" href="prioridades_v2.html">Abrir controle completo atualizado</a>
   </div>
@@ -91,6 +115,63 @@ f.addEventListener('load',()=>{
         card('Manhã livre em Osaka','Sem Kyoto neste dia. Café, descanso ou passeio leve perto do hotel.','MANHÃ LIVRE')+
         card('Buscar malas no hotel','Retirar toda a bagagem antes de seguir para Shin-Osaka.','ANTES DO TREM')+
         card('Nozomi 258 · Shin-Osaka → Tokyo','Saída 15:00 · chegada 17:27 · Green Car · confirmado no Klook.','15:00 · FIXO')+
+        '</div>';
+    }
+
+    const d11=d.getElementById('jp11');
+    if(d11){
+      d11.innerHTML=
+        routeBox('Rota do dia','Mitsui Garden Hotel Roppongi Tokyo Premier → Monte Fuji / Lago Kawaguchiko → hotel','https://www.google.com/maps/dir/?api=1&origin=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&destination=Lake+Kawaguchi')+
+        '<div class="attraction-grid">'+
+        card('Monte Fuji + Lago Kawaguchiko','Klook MTX697743 · carro particular 1–5 pessoas · inglês · R$ 2.400,68 pagos. Pickup no hotel; janela 07:00–09:00, aguardando horário exato do operador.','11/10 · CONFIRMADO')+
+        card('Reserva antiga ZZS873918','Cancelada pelo usuário. Reembolso em processamento pela Klook.','CANCELADA')+
+        '</div>';
+    }
+
+    const d12=d.getElementById('jp12');
+    if(d12){
+      d12.innerHTML=
+        routeBox('Rota do dia','Capy Neko Harajuku → Harajuku/Takeshita → Shibuya PARCO → Nintendo TOKYO + Pokémon Center Shibuya → Shibuya','https://www.google.com/maps/dir/?api=1&origin=Capybara+%26+Cat+capyneko+Harajuku+Tokyo&destination=Shibuya+Station&waypoints=Shibuya+PARCO')+
+        '<div class="attraction-grid">'+
+        card('Capy Neko Harajuku','2 pessoas · 40 min · ¥7.700 pré-pagos · reserva T37CHC · B Square Takeshita Street 2F · tel. 03-6271-5127 · meias obrigatórias.','11:30 · CONFIRMADO')+
+        card('Harajuku / Takeshita','Seguir a pé pela região após a Capy Neko.','DEPOIS DA RESERVA')+
+        card('Shibuya PARCO','Nintendo TOKYO + Pokémon Center Shibuya + lojas de cultura pop. Sem reserva.','SEM RESERVA')+
+        card('Shibuya','Explorar a região e noite livre. Shibuya Sky foi removido porque não há ingressos disponíveis.','SEM SHIBUYA SKY')+
+        '</div>';
+    }
+
+    const d13=d.getElementById('jp13');
+    if(d13){
+      d13.innerHTML=
+        '<div class="day-quick compact-quick"><article class="route-summary"><strong>13/10 · DisneySea + teamLab Planets</strong><span>Dia protegido por ingressos já pagos. Não mover de data.</span></article></div>'+
+        '<div class="attraction-grid">'+
+        card('Tokyo DisneySea','2 adultos · ingresso confirmado para 13/10 · ¥19.620 pagos.','CONFIRMADO')+
+        card('teamLab Planets TOKYO · Premium Pass','2 pessoas · ¥24.000 pagos · ingresso válido dentro da janela 08:00–21:00.','CONFIRMADO')+
+        '</div>';
+    }
+
+    const d14=d.getElementById('jp14');
+    if(d14){
+      d14.innerHTML=
+        routeBox('Rota do dia','Asakusa → Akihabara → Pokémon Center Tokyo DX → OWNDAYS Marronnier Gate Ginza → Uniqlo Ginza → Ginza → Tokyo Tower fotos externas → hotel','https://www.google.com/maps/dir/?api=1&origin=Asakusa&destination=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&waypoints=Akihabara%7CPokemon+Center+Tokyo+DX%7COWNDAYS+Marronnier+Gate+Ginza%7CUniqlo+Ginza%7CTokyo+Tower')+
+        '<div class="attraction-grid">'+
+        card('Asakusa','Começar pelo bloco histórico e seguir progressivamente para o sul.','INÍCIO DO DIA')+
+        card('Akihabara','Bloco nerd / eletrônicos / cultura pop.','DEPOIS')+
+        card('Pokémon Center Tokyo DX','Parada do roteiro urbano. Sem reserva.','SEM RESERVA')+
+        card('OWNDAYS Marronnier Gate Ginza','Exame de vista + óculos. Sem reserva rígida confirmada até agora.','GINZA')+
+        card('Uniqlo Ginza + Ginza','Compras e caminhada progressiva.','DEPOIS')+
+        card('Tokyo Tower · fotos-relâmpago','Somente fotos externas: Staircase 35.657059,139.745761 + 7-Eleven 35.653083,139.745201. Sem subida.','~5 MIN CADA')+
+        '</div>';
+    }
+
+    const d15=d.getElementById('jp15');
+    if(d15){
+      d15.innerHTML=
+        '<div class="day-quick compact-quick"><article class="route-summary"><strong>15/10 · Harry Potter + apothéose</strong><span>Warner Bros. 11:30 → janela livre → apothéose 19:00</span></article></div>'+
+        '<div class="attraction-grid">'+
+        card('Warner Bros. Studio Tour Tokyo','2 adultos · reserva 2676161 · ¥13.200 pagos.','11:30 · FIXO')+
+        card('Janela livre','Tempo entre o Studio Tour e o jantar; não criar compromisso que ameace a reserva da noite.','TARDE')+
+        card('apothéose','2 pessoas · mesa · 49F Toranomon Hills Station Tower · reserva confirmada.','19:00 · FIXO')+
         '</div>';
     }
   }catch(e){}
