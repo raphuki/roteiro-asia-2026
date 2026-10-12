@@ -92,6 +92,22 @@ f.addEventListener('load',()=>{
     const d=f.contentDocument;
     if(!d) return;
 
+    // Corrige o botão original "Ir para agora" do site-base sem alterar o restante.
+    d.addEventListener('click',e=>{
+      const el=e.target && e.target.closest ? e.target.closest('button,a') : null;
+      if(!el) return;
+      const label=(el.textContent||'').trim().toLowerCase();
+      if(!label.includes('ir para agora')) return;
+      const parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',day:'2-digit'}).formatToParts(new Date());
+      const day=(parts.find(p=>p.type==='day')||{}).value;
+      const target=day ? d.getElementById('jp'+day) : null;
+      if(target){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        target.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    },true);
+
     const kyoto=d.getElementById('jp09');
     if(kyoto){
       const route='Osaka → Arashiyama Bamboo Grove → Kinkaku-ji → Fushimi Inari Taisha → Kiyomizu-dera → Ninenzaka → Sannenzaka → Gion → teamLab Biovortex Kyoto → Pontocho → Pontocho Robin';
