@@ -42,7 +42,7 @@ h2{margin:0 0 6px} h3{margin:20px 0 8px}.x{float:right;border:0;background:#eee;
     <div class="fix"><b>Shibuya Sky REMOVIDO</b><br>Sem ingressos disponíveis para 12/10. Não substituir por outro mirante neste momento.</div>
 
     <h3>13/10 · DisneySea + teamLab Planets</h3>
-    <div class="route">Tokyo DisneySea + teamLab Planets TOKYO Premium Pass</div>
+    <div class="route">Tokyo DisneySea → teamLab Planets TOKYO Premium Pass</div>
     <div class="fix"><b>DisneySea confirmado</b><br>2 adultos · 13/10 · ¥19.620 pagos.</div>
     <div class="fix"><b>teamLab Planets confirmado</b><br>Premium Pass · 2 pessoas · ¥24.000 pagos · entrada válida dentro da janela 08:00–21:00.</div>
 
@@ -182,12 +182,12 @@ f.addEventListener('load',()=>{
     const d13=d.getElementById('jp13');
     if(d13){
       const routes13=
-        routeBox('🚗 Uber · hotel → teamLab','Mitsui Garden Hotel Roppongi Tokyo Premier → teamLab Planets TOKYO','https://www.google.com/maps/dir/?api=1&origin=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&destination=teamLab+Planets+TOKYO&travelmode=driving')+
-        routeBox('🚗 Uber · teamLab → DisneySea','teamLab Planets TOKYO → Tokyo DisneySea','https://www.google.com/maps/dir/?api=1&origin=teamLab+Planets+TOKYO&destination=Tokyo+DisneySea&travelmode=driving')+
-        routeBox('🚗 Uber · DisneySea → hotel','Tokyo DisneySea → Mitsui Garden Hotel Roppongi Tokyo Premier','https://www.google.com/maps/dir/?api=1&origin=Tokyo+DisneySea&destination=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&travelmode=driving');
+        routeBox('🚗 Uber · hotel → DisneySea','Mitsui Garden Hotel Roppongi Tokyo Premier → Tokyo DisneySea','https://www.google.com/maps/dir/?api=1&origin=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&destination=Tokyo+DisneySea&travelmode=driving')+
+        routeBox('🚗 Uber · DisneySea → teamLab','Tokyo DisneySea → teamLab Planets TOKYO','https://www.google.com/maps/dir/?api=1&origin=Tokyo+DisneySea&destination=teamLab+Planets+TOKYO&travelmode=driving')+
+        routeBox('🚗 Uber · teamLab → hotel','teamLab Planets TOKYO → Mitsui Garden Hotel Roppongi Tokyo Premier','https://www.google.com/maps/dir/?api=1&origin=teamLab+Planets+TOKYO&destination=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&travelmode=driving');
       const cards13='<div class="attraction-grid">'+
-        card('teamLab Planets TOKYO','Premium Pass · 2 pessoas · ¥24.000 pagos · entrada válida em qualquer horário entre 08:00–21:00. Fazer primeiro para depois seguir ao DisneySea sem precisar sair do parque.','08:00 · PRIMEIRA PARADA','https://www.pelago.co/img/products/JP-Japan/teamlab-planets-tokyo/e778eeca-f1e4-45b3-ae1b-986260fae6a3_teamlab-planets-tokyo-large.jpg')+
-        card('Tokyo DisneySea','2 adultos · ingresso confirmado para 13/10 · ¥19.620 pagos · Booking.com BK704094548192146 · PIN 3328.','DEPOIS DO TEAMLAB','https://media2.tokyodisneyresort.jp/content/dream/company/images/facility_tds/faci_TDS_11_01_01.jpg')+
+        card('teamLab Planets TOKYO','Premium Pass · 2 pessoas · ¥24.000 pagos · sem horário fixo; entrada válida em qualquer horário entre 08:00–21:00. Ir depois do DisneySea.','DEPOIS DO DISNEY · FLEXÍVEL','https://www.pelago.co/img/products/JP-Japan/teamlab-planets-tokyo/e778eeca-f1e4-45b3-ae1b-986260fae6a3_teamlab-planets-tokyo-large.jpg')+
+        card('Tokyo DisneySea','2 adultos · ingresso confirmado para 13/10 · ¥19.620 pagos · Booking.com BK704094548192146 · PIN 3328.','PRIMEIRA PARADA','https://media2.tokyodisneyresort.jp/content/dream/company/images/facility_tds/faci_TDS_11_01_01.jpg')+
         '</div>';
       updateTokyoDay(d13,routes13,cards13);
     }
