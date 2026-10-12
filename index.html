@@ -24,22 +24,11 @@ h2{margin:0 0 6px} h3{margin:20px 0 8px}.x{float:right;border:0;background:#eee;
   <div class="card">
     <button class="x" id="close">×</button>
     <h2>Tóquio · roteiro atual</h2>
-    <div class="small">Atualizado em 10/10/2026</div>
-    <h3>10/10 · Osaka → Tóquio</h3>
-    <div class="route">Manhã livre em Osaka → buscar malas no hotel → Shin-Osaka → Nozomi 258 → Tokyo</div>
-    <div class="fix"><b>15:00 · Nozomi 258</b><br>Shin-Osaka → Tokyo 17:27 · Green Car · confirmado no Klook</div>
-
-    <h3>11/10 · Monte Fuji + Gotemba</h3>
-    <div class="route">Hotel → Chureito Pagoda / Arakurayama → Honcho Street, Fujiyoshida → Oishi Park / Lake Kawaguchiko → Oshino Hakkai → Gotemba Premium Outlets → hotel</div>
-    <div class="fix"><b>07:00 · saída desejada do hotel</b><br>Carro particular Klook MTX697743 · 1–5 pessoas · inglês · R$ 2.400,68 pagos.</div>
-    <div class="fix"><b>Roteiro selecionado</b><br>Manter Chureito, Honcho Street, Oishi Park / Kawaguchiko e Oshino Hakkai. Remover Lake Yamanaka. Incluir Gotemba Premium Outlets por aproximadamente 2 horas.</div>
-    <div class="fix"><b>Gotemba</b><br>Inclusão solicitada à operadora. Pode haver cobrança adicional de quilometragem de ¥10.000–¥15.000 e hora extra de ¥5.000/h se ultrapassar 10 horas. Confirmação final com a operadora ainda pendente.</div>
-    <div class="fix"><b>Reserva antiga ZZS873918</b><br>Cancelada; reembolso em processamento.</div>
-
+    <div class="small">Atualizado em 12/10/2026</div>
     <h3>12/10 · Harajuku + Shibuya</h3>
-    <div class="route">Capy Neko Harajuku → Harajuku/Takeshita → Shibuya PARCO → Nintendo TOKYO + Pokémon Center Shibuya → Shibuya</div>
+    <div class="route">Capy Neko Harajuku → Takeshita → Shibuya PARCO → Nintendo TOKYO + Pokémon Center Shibuya → Shibuya Crossing → Omoide Yokocho → Gato 3D → Godzilla / Kabukicho → Shinjuku Ni-chome</div>
     <div class="fix"><b>11:30 · Capy Neko Harajuku · CONFIRMADO E PRÉ-PAGO</b><br>2 pessoas · 40 min · ¥7.700 pagos · reserva T37CHC · 1-6-10 Jingumae, B Square Takeshita Street 2F, Shibuya · tel. 03-6271-5127 · usar meias (ou comprar no local por ¥250).</div>
-    <div class="fix"><b>Shibuya Sky REMOVIDO</b><br>Sem ingressos disponíveis para 12/10. Não substituir por outro mirante neste momento.</div>
+    <div class="fix"><b>Noite em Shinjuku</b><br>Depois de Shibuya: Omoide Yokocho → Gato 3D → Godzilla Road / Kabukicho → Shinjuku Ni-chome. Sem horário rígido de retorno.</div>
 
     <h3>13/10 · DisneySea + teamLab Planets</h3>
     <div class="route">Tokyo DisneySea → teamLab Planets TOKYO Premium Pass</div>
@@ -58,8 +47,6 @@ h2{margin:0 0 6px} h3{margin:20px 0 8px}.x{float:right;border:0;background:#eee;
     <h3>16/10 · Saída de Tóquio</h3>
     <div class="route">Hotel → Narita Airport Terminal 2 → voo de retorno</div>
     <div class="fix"><b>17:25 · Qatar Airways</b><br>NRT → São Paulo · 1 escala · 2 malas por adulto · reserva 877462355900 · saída-alvo do hotel: 12:00.</div>
-
-    <a class="btn" style="background:#555" href="prioridades_v2.html">Abrir controle completo atualizado</a>
   </div>
 </div>
 <script>
@@ -95,6 +82,40 @@ f.addEventListener('load',()=>{
   try{
     const d=f.contentDocument;
     if(!d) return;
+
+    // Visualização enxuta: somente 12/10 em diante.
+    const hideEl=el=>{ if(el) el.style.setProperty('display','none','important'); };
+
+    // Oculta todos os dias do Japão anteriores a 12/10.
+    for(let n=1;n<12;n++){
+      hideEl(d.getElementById('jp'+String(n).padStart(2,'0')));
+      hideEl(d.getElementById('jp'+n));
+    }
+
+    // 12/10 passa a ser o primeiro dia navegável.
+    const startDay=d.getElementById('jp12');
+    if(startDay){
+      for(const el of [...startDay.querySelectorAll('a,button')]){
+        if(/dia anterior/i.test((el.textContent||'').trim())) hideEl(el);
+      }
+    }
+
+    // Oculta países/cidades já concluídos e áreas gerais antigas do menu/site.
+    const pastHeading=/^(tailândia|thailand|indonésia|indonesia|coreia|korea|seul|seoul|bangkok|bali|osaka|kyoto|nara)(\b|\s|·|—|-)/i;
+    const utilityHeading=/(comprovantes?|ferramentas?)/i;
+    for(const h of [...d.querySelectorAll('h1,h2,h3,h4,.section-kicker,.country-title,.section-title')]){
+      const t=(h.textContent||'').trim();
+      if(pastHeading.test(t) || utilityHeading.test(t)){
+        const block=h.closest('section,.country-section,.country-block,.section,.panel,.drawer') || h.parentElement;
+        if(block && !block.querySelector('#jp12,#jp13,#jp14,#jp15,#jp16')) hideEl(block);
+      }
+    }
+
+    // Some atalhos de navegação para conteúdo que foi ocultado.
+    for(const el of [...d.querySelectorAll('a,button')]){
+      const t=(el.textContent||'').trim();
+      if(/tailândia|thailand|indonésia|indonesia|coreia|korea|seul|seoul|bangkok|bali|comprovantes?|ferramentas?/i.test(t)) hideEl(el);
+    }
 
     // Corrige o botão original "Ir para agora" do site-base sem alterar o restante.
     d.addEventListener('click',e=>{
