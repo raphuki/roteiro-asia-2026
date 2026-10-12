@@ -68,13 +68,24 @@ p.onclick=e=>{if(e.target===p)p.style.display='none'};
 
 function card(title,desc,badge='',img=''){
   return '<article class="attraction-card">'+
-    (img?'<img class="attraction-img" src="'+img+'" alt="'+title+'" loading="lazy">':'')+
+    (img?'<img class="attraction-img" src="'+img+'" alt="'+title+'" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">':'')+
     '<div class="card-copy">'+
     (badge?'<span class="time">'+badge+'</span>':'')+
     '<h3>'+title+'</h3><p>'+desc+'</p></div></article>';
 }
 function routeBox(label,route,url){
   return '<div class="day-quick compact-quick"><article class="route-summary"><strong>🗺️ '+label+'</strong><span>'+route+'</span><a class="route-open" href="'+url+'" target="_blank" rel="noopener">Abrir rota no Google Maps</a></article></div>';
+}
+function updateTokyoDay(day,routesHtml,cardsHtml){
+  const oldRoutes=day.querySelector('.tokyo-route-overrides');
+  if(oldRoutes) oldRoutes.remove();
+  const grid=day.querySelector('.attraction-grid');
+  if(grid){
+    grid.insertAdjacentHTML('beforebegin','<div class="tokyo-route-overrides">'+routesHtml+'</div>');
+    grid.outerHTML=cardsHtml;
+  }else{
+    day.insertAdjacentHTML('beforeend','<div class="tokyo-route-overrides">'+routesHtml+'</div>'+cardsHtml);
+  }
 }
 f.addEventListener('load',()=>{
   try{
@@ -124,36 +135,38 @@ f.addEventListener('load',()=>{
 
     const d12=d.getElementById('jp12');
     if(d12){
-      d12.innerHTML=
+      const routes12=
         routeBox('🚗 Uber · hotel → Capy Neko','Mitsui Garden Hotel Roppongi Tokyo Premier → Capy Neko Harajuku','https://www.google.com/maps/dir/?api=1&origin=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&destination=Capybara+%26+Cat+capyneko+Harajuku+Tokyo&travelmode=driving')+
         routeBox('🚶 A pé · Capy Neko → Takeshita','Capy Neko → Takeshita Street','https://www.google.com/maps/dir/?api=1&origin=Capybara+%26+Cat+capyneko+Harajuku+Tokyo&destination=Takeshita+Street&travelmode=walking')+
         routeBox('🚗 Uber · Harajuku → Shibuya PARCO','Takeshita Street → Shibuya PARCO','https://www.google.com/maps/dir/?api=1&origin=Takeshita+Street&destination=Shibuya+PARCO&travelmode=driving')+
-        routeBox('🚶 A pé · Shibuya','Shibuya PARCO → Nintendo TOKYO → Pokémon Center Shibuya → Shibuya Crossing','https://www.google.com/maps/dir/?api=1&origin=Shibuya+PARCO&destination=Shibuya+Crossing&waypoints=Nintendo+TOKYO%7CPokemon+Center+Shibuya&travelmode=walking')+
-        '<div class="attraction-grid">'+
+        routeBox('🚶 A pé · Shibuya','Shibuya PARCO → Nintendo TOKYO → Pokémon Center Shibuya → Shibuya Crossing','https://www.google.com/maps/dir/?api=1&origin=Shibuya+PARCO&destination=Shibuya+Crossing&waypoints=Nintendo+TOKYO%7CPokemon+Center+Shibuya&travelmode=walking');
+      const cards12='<div class="attraction-grid">'+
         card('Capy Neko Harajuku','2 pessoas · 40 min · ¥7.700 pré-pagos · reserva T37CHC · B Square Takeshita Street 2F · tel. 03-6271-5127 · meias obrigatórias.','11:30 · CONFIRMADO','https://res.klook.com/image/upload/activities/mb0qdojtw5v2jnaylsar.jpg')+
-        card('Takeshita Street','Rua principal de Harajuku; seguir a pé após a Capy Neko.','A PÉ','https://i.pinimg.com/736x/6c/65/0e/6c650e74eb6847a26fd4a834ccedda61.jpg')+
-        card('Shibuya PARCO','Shopping de cultura pop e moda; base para as próximas duas paradas.','A PÉ','https://www.japan-guide.com/blog/raina/g/740/191203_24.jpg')+
-        card('Nintendo TOKYO','Loja oficial da Nintendo dentro do Shibuya PARCO.','SHIBUYA PARCO','https://crea.ismcdn.jp/mwimgs/0/3/1200wm/img_0388e1f2bb4ba9c7d8e252c586fd64e4155379.jpg')+
-        card('Pokémon Center Shibuya','Pokémon Center dentro do Shibuya PARCO, com foco em produtos e colecionáveis.','SHIBUYA PARCO','https://cdn.gaijinpot.com/app/uploads/sites/6/2020/01/Graffiti-Pikachu-Shibuya-Pokemon-Center-800x500.jpg')+
-        card('Shibuya Crossing','Fechar o passeio no cruzamento de Shibuya e arredores. Shibuya Sky permanece removido.','NOITE LIVRE','https://ppap.kinto-jp.com/spots_images/3369-images/13548.jpg')+
+        card('Takeshita Street','Rua principal de Harajuku; seguir a pé após a Capy Neko.','A PÉ','https://beeducation.tur.br/wp-content/uploads/2023/01/interc%C3%A2mbio-em-t%C3%B3quio8.jpg')+
+        card('Shibuya PARCO','Shopping de cultura pop e moda; base para as próximas duas paradas.','A PÉ','https://www.bring-you.info/imgs/2023/04/shibuya-parco-1-900x600.jpg')+
+        card('Nintendo TOKYO','Loja oficial da Nintendo dentro do Shibuya PARCO.','SHIBUYA PARCO','https://assets.st-note.com/production/uploads/images/17953298/picture_pc_a32e82dcc647c4c671bc16799f4630fb.jpg?fit=bounds&height=2000&quality=85&width=2000')+
+        card('Pokémon Center Shibuya','Pokémon Center dentro do Shibuya PARCO, com foco em produtos e colecionáveis.','SHIBUYA PARCO','https://s.eximg.jp/exnews/feed/Inside/Inside_125823_1.jpg')+
+        card('Shibuya Crossing','Fechar o passeio no cruzamento de Shibuya e arredores. Shibuya Sky permanece removido.','NOITE LIVRE','https://i0.wp.com/ryokougirl.com/wp-content/uploads/2017/03/shibuya-crossing.jpg?resize=1108%2C739&ssl=1')+
         '</div>';
+      updateTokyoDay(d12,routes12,cards12);
     }
 
     const d13=d.getElementById('jp13');
     if(d13){
-      d13.innerHTML=
+      const routes13=
         routeBox('🚗 Uber · hotel → DisneySea','Mitsui Garden Hotel Roppongi Tokyo Premier → Tokyo DisneySea','https://www.google.com/maps/dir/?api=1&origin=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&destination=Tokyo+DisneySea&travelmode=driving')+
         routeBox('🚗 Uber · DisneySea → teamLab','Tokyo DisneySea → teamLab Planets TOKYO','https://www.google.com/maps/dir/?api=1&origin=Tokyo+DisneySea&destination=teamLab+Planets+TOKYO&travelmode=driving')+
-        routeBox('🚗 Uber · teamLab → hotel','teamLab Planets TOKYO → Mitsui Garden Hotel Roppongi Tokyo Premier','https://www.google.com/maps/dir/?api=1&origin=teamLab+Planets+TOKYO&destination=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&travelmode=driving')+
-        '<div class="attraction-grid">'+
-        card('Tokyo DisneySea','2 adultos · ingresso confirmado para 13/10 · ¥19.620 pagos · Booking.com BK704094548192146 · PIN 3328.','13/10 · CONFIRMADO','https://c02.castel.jp/cover?url=https%3A%2F%2Fcastel.jp%2Fimg%2Fup%2Fpicture_2774.jpg&w=681')+
-        card('teamLab Planets TOKYO','Premium Pass · 2 pessoas · ¥24.000 pagos · entrada válida dentro da janela 08:00–21:00.','CONFIRMADO','https://static.tripzilla.com/thumb/f/b/220923_800x.jpg')+
+        routeBox('🚗 Uber · teamLab → hotel','teamLab Planets TOKYO → Mitsui Garden Hotel Roppongi Tokyo Premier','https://www.google.com/maps/dir/?api=1&origin=teamLab+Planets+TOKYO&destination=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&travelmode=driving');
+      const cards13='<div class="attraction-grid">'+
+        card('Tokyo DisneySea','2 adultos · ingresso confirmado para 13/10 · ¥19.620 pagos · Booking.com BK704094548192146 · PIN 3328.','13/10 · CONFIRMADO','https://media2.tokyodisneyresort.jp/content/dream/company/images/facility_tds/faci_TDS_11_01_01.jpg')+
+        card('teamLab Planets TOKYO','Premium Pass · 2 pessoas · ¥24.000 pagos · entrada válida dentro da janela 08:00–21:00.','CONFIRMADO','https://www.pelago.co/img/products/JP-Japan/teamlab-planets-tokyo/e778eeca-f1e4-45b3-ae1b-986260fae6a3_teamlab-planets-tokyo-large.jpg')+
         '</div>';
+      updateTokyoDay(d13,routes13,cards13);
     }
 
     const d14=d.getElementById('jp14');
     if(d14){
-      d14.innerHTML=
+      const routes14=
         routeBox('🚗 Uber · hotel → Asakusa','Mitsui Garden Hotel Roppongi Tokyo Premier → Asakusa / Senso-ji','https://www.google.com/maps/dir/?api=1&origin=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&destination=Senso-ji+Temple&travelmode=driving')+
         routeBox('🚗 Uber · Asakusa → Akihabara','Senso-ji / Asakusa → Akihabara','https://www.google.com/maps/dir/?api=1&origin=Senso-ji+Temple&destination=Akihabara&travelmode=driving')+
         routeBox('🚗 Uber · Akihabara → Pokémon DX','Akihabara → Pokémon Center Tokyo DX','https://www.google.com/maps/dir/?api=1&origin=Akihabara&destination=Pokemon+Center+Tokyo+DX&travelmode=driving')+
@@ -161,29 +174,31 @@ f.addEventListener('load',()=>{
         routeBox('🚶 A pé · Ginza','OWNDAYS Marronnier Gate Ginza → UNIQLO Ginza → Ginza','https://www.google.com/maps/dir/?api=1&origin=OWNDAYS+Marronnier+Gate+Ginza&destination=Ginza&waypoints=UNIQLO+Ginza&travelmode=walking')+
         routeBox('🚗 Uber · Ginza → Tokyo Tower','Ginza → Tokyo Tower Underground Parking Stairway','https://www.google.com/maps/dir/?api=1&origin=Ginza&destination=35.657059,139.745761&travelmode=driving')+
         routeBox('🚶 A pé · fotos Tokyo Tower','Escadaria → ponto Tokyo Tower × 7-Eleven','https://www.google.com/maps/dir/?api=1&origin=35.657059,139.745761&destination=35.653083,139.745201&travelmode=walking')+
-        routeBox('🚗 Uber · Tokyo Tower → hotel','7-Eleven / Tokyo Tower → Mitsui Garden Hotel Roppongi Tokyo Premier','https://www.google.com/maps/dir/?api=1&origin=35.653083,139.745201&destination=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&travelmode=driving')+
-        '<div class="attraction-grid">'+
+        routeBox('🚗 Uber · Tokyo Tower → hotel','7-Eleven / Tokyo Tower → Mitsui Garden Hotel Roppongi Tokyo Premier','https://www.google.com/maps/dir/?api=1&origin=35.653083,139.745201&destination=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&travelmode=driving');
+      const cards14='<div class="attraction-grid">'+
         card('Asakusa · Senso-ji','Começar pelo bloco histórico de Asakusa, com foco no Senso-ji.','INÍCIO DO DIA','https://cdn.shopify.com/s/files/1/0231/1294/1648/files/Temple_11_1024x1024.jpg?v=1630686492')+
-        card('Akihabara','Eletrônicos, games, anime, figures e cultura pop.','DEPOIS','https://wmimages.joker.be/styles/3d18bc17c7d7da40b2ede64e7d6a68e71b95acd4/www.joker.be/production/grouptravel/gallery/tommybogaerts160-p0lmi1.jpg?sign=2b0e40b24e6aa660ca7c456f77dd26ab1905aaec27902028077580af451c59bf&style=W3sicmVzaXplIjp7ImZpdCI6ImNvdmVyIiwid2lkdGgiOjgwMCwiaGVpZ2h0Ijo1OTAsImdyYXZpdHkiOiJjZW50ZXIiLCJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWV9fV0%3D')+
-        card('Pokémon Center Tokyo DX','Parada em Nihombashi para a loja Pokémon Center Tokyo DX.','SEM RESERVA','https://poiend-pctr.c.yimg.jp/RbvIgEqcLh0WnvgGGwVVgTznkURkbN_CqctDurJdF3TSL31JMxXG6iNHu5YLymc4xkn5WoXv1tXS-axiUJUCNL9gLLFsah-mVlaL00LlQLumXHPJ77DBnz7T4EXL2BZzUTGGvDI1P_qJRhe9Lo68ahlSPwnfut8Ej5bpYOjuQzuY_h6WJhSUxl9-idxn1x9AtsxaAw4s5-4lWHq3csEUjayz6zocDle8Dx6VW7h6Yvx9C9tTKMW7GpgM5L1Nu5J2NuNixutjemquweowYuwuicbfJJPwlSz9V6j15w1zMiw%3D')+
+        card('Akihabara','Eletrônicos, games, anime, figures e cultura pop.','DEPOIS','https://media4.thrillophilia.com/images/photos/000/399/067/original/1761743425_sdouit.jpg?aio=w-753%3Bh-450%3Bcrop&dpr=2')+
+        card('Pokémon Center Tokyo DX','Parada em Nihombashi para a loja Pokémon Center Tokyo DX.','SEM RESERVA','https://ak-d.tripcdn.com/images/1mi1e224x95k3zb2k9464_R_600_400_R5_Q90.jpg?proc=source%2Ftrip')+
         card('OWNDAYS Marronnier Gate Ginza','Exame de vista + óculos. Sem reserva rígida confirmada até agora.','GINZA','https://www.marronniergate.com/theme/mg/upload/shop/img/ID00287-20191120_105818-img2.jpg')+
         card('UNIQLO Ginza','Flagship da UNIQLO em Ginza.','A PÉ','https://www.nomadglobal.com/nomad-guide/media/tips/toquio/uniqlo-ginza-flagship-store/hero.webp')+
-        card('Ginza','Caminhada pela região comercial depois das lojas.','A PÉ','https://timetomosey.com/wp-content/uploads/2019/dec-06-japan-tokyo-5-day-trip/2019-12-dec-08-sun-tokyo/ginza-chuo-dori-weekend-pedestrian-paradise/ginza-chuo-dori-weekend-pedestrian-paradise-13.jpg')+
+        card('Ginza','Caminhada pela região comercial depois das lojas.','A PÉ','https://www.tabirai.net/tabirai-uploader/img/0003653/s1_0003653.jpg')+
         card('Tokyo Tower · Escadaria','Foto externa na escadaria do estacionamento subterrâneo. Coordenadas: 35.657059, 139.745761.','FOTO RÁPIDA','https://ak-d.tripcdn.com/images/1mi342224x06bw1teE5BD.jpg?proc=source%2Ftrip')+
         card('Tokyo Tower × 7-Eleven','Segundo ponto externo de foto com a torre e o 7-Eleven. Coordenadas: 35.653083, 139.745201.','FOTO RÁPIDA','https://coinventmediastorage.blob.core.windows.net/media-storage-container/tiktok_thumbnail_7490435438616907016.jpg')+
         '</div>';
+      updateTokyoDay(d14,routes14,cards14);
     }
 
     const d15=d.getElementById('jp15');
     if(d15){
-      d15.innerHTML=
+      const routes15=
         routeBox('🚗 Uber · hotel → Warner Bros.','Mitsui Garden Hotel Roppongi Tokyo Premier → Warner Bros. Studio Tour Tokyo','https://www.google.com/maps/dir/?api=1&origin=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&destination=Warner+Bros.+Studio+Tour+Tokyo&travelmode=driving')+
         routeBox('🚗 Uber · Warner Bros. → apothéose','Warner Bros. Studio Tour Tokyo → apothéose / Toranomon Hills Station Tower','https://www.google.com/maps/dir/?api=1&origin=Warner+Bros.+Studio+Tour+Tokyo&destination=Toranomon+Hills+Station+Tower&travelmode=driving')+
-        routeBox('🚗 Uber · apothéose → hotel','Toranomon Hills Station Tower → Mitsui Garden Hotel Roppongi Tokyo Premier','https://www.google.com/maps/dir/?api=1&origin=Toranomon+Hills+Station+Tower&destination=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&travelmode=driving')+
-        '<div class="attraction-grid">'+
-        card('Warner Bros. Studio Tour Tokyo','2 adultos · reserva 2676161 · ¥13.200 pagos · 1-1-7 Kasugacho, Nerima-ku.','11:30 · FIXO','https://storage.ghost.io/c/f9/d8/f9d84501-4603-4456-bf4b-cab0846b6971/content/images/2025/11/Photo_1-3.jpg')+
+        routeBox('🚗 Uber · apothéose → hotel','Toranomon Hills Station Tower → Mitsui Garden Hotel Roppongi Tokyo Premier','https://www.google.com/maps/dir/?api=1&origin=Toranomon+Hills+Station+Tower&destination=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&travelmode=driving');
+      const cards15='<div class="attraction-grid">'+
+        card('Warner Bros. Studio Tour Tokyo','2 adultos · reserva 2676161 · ¥13.200 pagos · 1-1-7 Kasugacho, Nerima-ku.','11:30 · FIXO','https://res.klook.com/image/upload/fl_lossy.progressive%2Cq_85/c_fill%2Cw_1000/v1703148529/shpuayo0nzlgxcqc8hhs.jpg')+
         card('apothéose','2 pessoas · reserva VAYKFKKV · 49F Toranomon Hills Station Tower.','19:00 · FIXO','https://images.engineweb.jp/media/article/3350004/images/main_6cf70da22e88ab597f14bfaadcf701b1.jpg?w=1200')+
         '</div>';
+      updateTokyoDay(d15,routes15,cards15);
     }
   }catch(e){}
 });
