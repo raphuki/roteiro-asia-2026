@@ -167,16 +167,31 @@ f.addEventListener('load',()=>{
         routeBox('🚗 Uber · hotel → Capy Neko','Mitsui Garden Hotel Roppongi Tokyo Premier → Capy Neko Harajuku','https://www.google.com/maps/dir/?api=1&origin=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&destination=Capybara+%26+Cat+capyneko+Harajuku+Tokyo&travelmode=driving')+
         routeBox('🚶 A pé · Capy Neko → Takeshita','Capy Neko → Takeshita Street','https://www.google.com/maps/dir/?api=1&origin=Capybara+%26+Cat+capyneko+Harajuku+Tokyo&destination=Takeshita+Street&travelmode=walking')+
         routeBox('🚗 Uber · Harajuku → Shibuya PARCO','Takeshita Street → Shibuya PARCO','https://www.google.com/maps/dir/?api=1&origin=Takeshita+Street&destination=Shibuya+PARCO&travelmode=driving')+
-        routeBox('🚶 A pé · Shibuya','Shibuya PARCO → Nintendo TOKYO → Pokémon Center Shibuya → Shibuya Crossing','https://www.google.com/maps/dir/?api=1&origin=Shibuya+PARCO&destination=Shibuya+Crossing&waypoints=Nintendo+TOKYO%7CPokemon+Center+Shibuya&travelmode=walking');
+        routeBox('🚶 A pé · Shibuya','Shibuya PARCO → Nintendo TOKYO → Pokémon Center Shibuya → Shibuya Crossing','https://www.google.com/maps/dir/?api=1&origin=Shibuya+PARCO&destination=Shibuya+Crossing&waypoints=Nintendo+TOKYO%7CPokemon+Center+Shibuya&travelmode=walking')+
+        routeBox('🚗 Uber · Shibuya → Shinjuku','Shibuya Crossing → Omoide Yokocho','https://www.google.com/maps/dir/?api=1&origin=Shibuya+Crossing&destination=Omoide+Yokocho&travelmode=driving')+
+        routeBox('🚶 A pé · Shinjuku noite','Omoide Yokocho → Cross Shinjuku Vision / Gato 3D → Godzilla Road / Godzilla Head → Kabukicho','https://www.google.com/maps/dir/?api=1&origin=Omoide+Yokocho&destination=Kabukicho&waypoints=Cross+Shinjuku+Vision%7CHotel+Gracery+Shinjuku&travelmode=walking')+
+        routeBox('🚗 Uber · Kabukicho → Ni-chome','Kabukicho → Shinjuku Ni-chome','https://www.google.com/maps/dir/?api=1&origin=Kabukicho&destination=Shinjuku+Ni-chome&travelmode=driving');
       const cards12='<div class="attraction-grid">'+
         card('Capy Neko Harajuku','2 pessoas · 40 min · ¥7.700 pré-pagos · reserva T37CHC · B Square Takeshita Street 2F · tel. 03-6271-5127 · meias obrigatórias.','11:30 · CONFIRMADO','https://res.klook.com/image/upload/activities/mb0qdojtw5v2jnaylsar.jpg')+
         card('Takeshita Street','Rua principal de Harajuku; seguir a pé após a Capy Neko.','A PÉ','https://beeducation.tur.br/wp-content/uploads/2023/01/interc%C3%A2mbio-em-t%C3%B3quio8.jpg')+
         card('Shibuya PARCO','Shopping de cultura pop e moda; base para as próximas duas paradas.','A PÉ','https://www.bring-you.info/imgs/2023/04/shibuya-parco-1-900x600.jpg')+
         card('Nintendo TOKYO','Loja oficial da Nintendo dentro do Shibuya PARCO.','SHIBUYA PARCO','https://assets.st-note.com/production/uploads/images/17953298/picture_pc_a32e82dcc647c4c671bc16799f4630fb.jpg?fit=bounds&height=2000&quality=85&width=2000')+
         card('Pokémon Center Shibuya','Pokémon Center dentro do Shibuya PARCO, com foco em produtos e colecionáveis.','SHIBUYA PARCO','https://s.eximg.jp/exnews/feed/Inside/Inside_125823_1.jpg')+
-        card('Shibuya Crossing','Fechar o passeio no cruzamento de Shibuya e arredores. Shibuya Sky permanece removido.','NOITE LIVRE','https://i0.wp.com/ryokougirl.com/wp-content/uploads/2017/03/shibuya-crossing.jpg?resize=1108%2C739&ssl=1')+
+        card('Shibuya Crossing','Fechar o bloco de Shibuya no cruzamento e arredores. Depois, seguir para Shinjuku no começo da noite. Shibuya Sky permanece removido.','FIM DE SHIBUYA','https://i0.wp.com/ryokougirl.com/wp-content/uploads/2017/03/shibuya-crossing.jpg?resize=1108%2C739&ssl=1')+
+        card('Omoide Yokocho','Vielas estreitas de izakayas e yakitori ao lado da estação de Shinjuku. Boa primeira parada quando a noite começar.','COMEÇO DA NOITE')+
+        card('Cross Shinjuku Vision · Gato 3D','Painel 3D gigante famoso em frente à saída leste de Shinjuku. Parada rápida para ver o gato e tirar fotos.','SHINJUKU')+
+        card('Godzilla Road + Godzilla Head','Caminhar pela Godzilla Road em Kabukicho e ver a cabeça gigante no topo do Shinjuku Toho Building. A visita ao terraço do hotel está indisponível; a vista externa permanece.','KABUKICHO')+
+        card('Kabukicho','Passeio pelas ruas de neon e entretenimento de Shinjuku, sem compromisso fixo.','NOITE')+
+        card('Shinjuku Ni-chome','Fechar a noite no principal distrito LGBTQ+ de Tóquio, escolhendo bar/drag conforme o movimento. Sem horário rígido de volta para o hotel.','NOITE · LGBTQ+')+
         '</div>';
       updateTokyoDay(d12,routes12,cards12);
+      for(const h of [...d12.querySelectorAll('h2,h3,h4,strong')]){
+        if((h.textContent||'').includes('Shinjuku antes de Ni-chome')){
+          const box=h.closest('article');
+          if(box) box.remove();
+          else if(h.parentElement) h.parentElement.remove();
+        }
+      }
     }
 
     const d13=d.getElementById('jp13');
