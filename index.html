@@ -151,6 +151,13 @@ f.addEventListener('load',()=>{
 
     const d12=d.getElementById('jp12');
     if(d12){
+      for(const el of [...d12.querySelectorAll('*')]){
+        if(el.children.length===0){
+          const t=(el.textContent||'').trim();
+          if(/Tóquio urbano B/i.test(t) || /flexível para Fuji/i.test(t)) el.textContent='Harajuku + Shibuya';
+          if(/Driven Tokyo/i.test(t) || /Japão Guiado/i.test(t) || /Se 12 virar Fuji/i.test(t)) el.textContent='Capy Neko 11:30 confirmado. Depois: Takeshita Street → Shibuya PARCO → Nintendo TOKYO → Pokémon Center Shibuya → Shibuya.';
+        }
+      }
       const routes12=
         routeBox('🚗 Uber · hotel → Capy Neko','Mitsui Garden Hotel Roppongi Tokyo Premier → Capy Neko Harajuku','https://www.google.com/maps/dir/?api=1&origin=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&destination=Capybara+%26+Cat+capyneko+Harajuku+Tokyo&travelmode=driving')+
         routeBox('🚶 A pé · Capy Neko → Takeshita','Capy Neko → Takeshita Street','https://www.google.com/maps/dir/?api=1&origin=Capybara+%26+Cat+capyneko+Harajuku+Tokyo&destination=Takeshita+Street&travelmode=walking')+
@@ -170,9 +177,9 @@ f.addEventListener('load',()=>{
     const d13=d.getElementById('jp13');
     if(d13){
       const routes13=
-        routeBox('🚗 Uber · hotel → DisneySea','Mitsui Garden Hotel Roppongi Tokyo Premier → Tokyo DisneySea','https://www.google.com/maps/dir/?api=1&origin=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&destination=Tokyo+DisneySea&travelmode=driving')+
-        routeBox('🚗 Uber · DisneySea → teamLab','Tokyo DisneySea → teamLab Planets TOKYO','https://www.google.com/maps/dir/?api=1&origin=Tokyo+DisneySea&destination=teamLab+Planets+TOKYO&travelmode=driving')+
-        routeBox('🚗 Uber · teamLab → hotel','teamLab Planets TOKYO → Mitsui Garden Hotel Roppongi Tokyo Premier','https://www.google.com/maps/dir/?api=1&origin=teamLab+Planets+TOKYO&destination=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&travelmode=driving');
+        routeBox('🚗 Uber · hotel → teamLab','Mitsui Garden Hotel Roppongi Tokyo Premier → teamLab Planets TOKYO','https://www.google.com/maps/dir/?api=1&origin=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&destination=teamLab+Planets+TOKYO&travelmode=driving')+
+        routeBox('🚗 Uber · teamLab → DisneySea','teamLab Planets TOKYO → Tokyo DisneySea','https://www.google.com/maps/dir/?api=1&origin=teamLab+Planets+TOKYO&destination=Tokyo+DisneySea&travelmode=driving')+
+        routeBox('🚗 Uber · DisneySea → hotel','Tokyo DisneySea → Mitsui Garden Hotel Roppongi Tokyo Premier','https://www.google.com/maps/dir/?api=1&origin=Tokyo+DisneySea&destination=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&travelmode=driving');
       const cards13='<div class="attraction-grid">'+
         card('Tokyo DisneySea','2 adultos · ingresso confirmado para 13/10 · ¥19.620 pagos · Booking.com BK704094548192146 · PIN 3328.','13/10 · CONFIRMADO','https://media2.tokyodisneyresort.jp/content/dream/company/images/facility_tds/faci_TDS_11_01_01.jpg')+
         card('teamLab Planets TOKYO','Premium Pass · 2 pessoas · ¥24.000 pagos · entrada válida dentro da janela 08:00–21:00.','CONFIRMADO','https://www.pelago.co/img/products/JP-Japan/teamlab-planets-tokyo/e778eeca-f1e4-45b3-ae1b-986260fae6a3_teamlab-planets-tokyo-large.jpg')+
