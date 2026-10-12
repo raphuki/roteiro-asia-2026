@@ -152,6 +152,7 @@ f.addEventListener('load',()=>{
     const d12=d.getElementById('jp12');
     if(d12){
       for(const el of [...d12.querySelectorAll('*')]){
+        if(el.children.length===0 && /^07:30$/.test((el.textContent||'').trim()) && /Acordar/i.test(el.parentElement?.textContent||'')) el.textContent='09:00';
         if(el.children.length===0){
           const t=(el.textContent||'').trim();
           if(/Tóquio urbano B/i.test(t) || /flexível para Fuji/i.test(t)) el.textContent='Harajuku + Shibuya';
@@ -181,14 +182,21 @@ f.addEventListener('load',()=>{
         routeBox('🚗 Uber · teamLab → DisneySea','teamLab Planets TOKYO → Tokyo DisneySea','https://www.google.com/maps/dir/?api=1&origin=teamLab+Planets+TOKYO&destination=Tokyo+DisneySea&travelmode=driving')+
         routeBox('🚗 Uber · DisneySea → hotel','Tokyo DisneySea → Mitsui Garden Hotel Roppongi Tokyo Premier','https://www.google.com/maps/dir/?api=1&origin=Tokyo+DisneySea&destination=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&travelmode=driving');
       const cards13='<div class="attraction-grid">'+
-        card('Tokyo DisneySea','2 adultos · ingresso confirmado para 13/10 · ¥19.620 pagos · Booking.com BK704094548192146 · PIN 3328.','13/10 · CONFIRMADO','https://media2.tokyodisneyresort.jp/content/dream/company/images/facility_tds/faci_TDS_11_01_01.jpg')+
-        card('teamLab Planets TOKYO','Premium Pass · 2 pessoas · ¥24.000 pagos · entrada válida dentro da janela 08:00–21:00.','CONFIRMADO','https://www.pelago.co/img/products/JP-Japan/teamlab-planets-tokyo/e778eeca-f1e4-45b3-ae1b-986260fae6a3_teamlab-planets-tokyo-large.jpg')+
+        card('teamLab Planets TOKYO','Premium Pass · 2 pessoas · ¥24.000 pagos · entrada válida em qualquer horário entre 08:00–21:00. Fazer primeiro para depois seguir ao DisneySea sem precisar sair do parque.','08:00 · PRIMEIRA PARADA','https://www.pelago.co/img/products/JP-Japan/teamlab-planets-tokyo/e778eeca-f1e4-45b3-ae1b-986260fae6a3_teamlab-planets-tokyo-large.jpg')+
+        card('Tokyo DisneySea','2 adultos · ingresso confirmado para 13/10 · ¥19.620 pagos · Booking.com BK704094548192146 · PIN 3328.','DEPOIS DO TEAMLAB','https://media2.tokyodisneyresort.jp/content/dream/company/images/facility_tds/faci_TDS_11_01_01.jpg')+
         '</div>';
       updateTokyoDay(d13,routes13,cards13);
     }
 
     const d14=d.getElementById('jp14');
     if(d14){
+      for(const el of [...d14.querySelectorAll('*')]){
+        if(el.children.length===0){
+          const t=(el.textContent||'').trim();
+          if(/Tóquio urbano A/i.test(t) || /flexível para Fuji/i.test(t)) el.textContent='Tóquio urbano · Asakusa, Akihabara, Ginza + Tokyo Tower';
+          if(/Driven Tokyo/i.test(t) || /Japão Guiado/i.test(t) || /Se 14 virar Fuji/i.test(t)) el.textContent='Roteiro fixo: Asakusa → Akihabara → Pokémon Center Tokyo DX → Ginza → Tokyo Tower.';
+        }
+      }
       const routes14=
         routeBox('🚗 Uber · hotel → Asakusa','Mitsui Garden Hotel Roppongi Tokyo Premier → Asakusa / Senso-ji','https://www.google.com/maps/dir/?api=1&origin=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&destination=Senso-ji+Temple&travelmode=driving')+
         routeBox('🚗 Uber · Asakusa → Akihabara','Senso-ji / Asakusa → Akihabara','https://www.google.com/maps/dir/?api=1&origin=Senso-ji+Temple&destination=Akihabara&travelmode=driving')+
@@ -213,6 +221,12 @@ f.addEventListener('load',()=>{
 
     const d15=d.getElementById('jp15');
     if(d15){
+      for(const el of [...d15.querySelectorAll('*')]){
+        if(el.children.length===0){
+          const t=(el.textContent||'').trim();
+          if(/Harry Potter.*apothéose/i.test(t)) el.textContent='Warner Bros. Studio Tour + apothéose';
+        }
+      }
       const routes15=
         routeBox('🚗 Uber · hotel → Warner Bros.','Mitsui Garden Hotel Roppongi Tokyo Premier → Warner Bros. Studio Tour Tokyo','https://www.google.com/maps/dir/?api=1&origin=Mitsui+Garden+Hotel+Roppongi+Tokyo+Premier&destination=Warner+Bros.+Studio+Tour+Tokyo&travelmode=driving')+
         routeBox('🚗 Uber · Warner Bros. → apothéose','Warner Bros. Studio Tour Tokyo → apothéose / Toranomon Hills Station Tower','https://www.google.com/maps/dir/?api=1&origin=Warner+Bros.+Studio+Tour+Tokyo&destination=Toranomon+Hills+Station+Tower&travelmode=driving')+
