@@ -53,6 +53,8 @@ h2{margin:0 0 6px} h3{margin:20px 0 8px}.x{float:right;border:0;background:#eee;
 </div>
 <script>
 const f=document.getElementById('base');
+// Evita mostrar a versão antiga antes de aplicar as correções.
+f.style.visibility='hidden';
 f.src='site-base.html'+location.search+location.hash;
 const p=document.getElementById('panel');
 document.getElementById('fab').onclick=()=>p.style.display='block';
@@ -85,6 +87,10 @@ f.addEventListener('load',()=>{
     const d=f.contentDocument;
     if(!d) return;
 
+    // Esconde imediatamente o histórico no documento incorporado.
+    const hiddenStyle=d.createElement('style');
+    hiddenStyle.textContent='[id^="jp01"],[id^="jp02"],[id^="jp03"],[id^="jp04"],[id^="jp05"],[id^="jp06"],[id^="jp07"],[id^="jp08"],[id^="jp09"],#jp10,#jp11{display:none!important}';
+    d.head.appendChild(hiddenStyle);
     // Visualização enxuta: somente 12/10 em diante.
     const hideEl=el=>{ if(el) el.style.setProperty('display','none','important'); };
 
@@ -262,6 +268,16 @@ f.addEventListener('load',()=>{
         card('Tokyo Tower × 7-Eleven','Segundo ponto externo de foto com a torre e o 7-Eleven. Coordenadas: 35.653083, 139.745201.','FOTO RÁPIDA','https://coinventmediastorage.blob.core.windows.net/media-storage-container/tiktok_thumbnail_7490435438616907016.jpg')+
         '</div>';
       updateTokyoDay(d14,routes14,cards14);
+      // Remove visualmente blocos antigos (incluindo o Fuji) sem apagar o histórico no código.
+      for(const el of [...d14.querySelectorAll('article')]){
+        if(!el.closest('.tokyo-route-overrides,.attraction-grid')) el.style.setProperty('display','none','important');
+      }
+      for(const el of [...d14.querySelectorAll('h1,h2,h3,h4,p,span,strong')]){
+        if(el.closest('.tokyo-route-overrides,.attraction-grid')) continue;
+        if(el.children.length===0 && /fuji|flexível|tóquio urbano a|driven tokyo|japão guiado/i.test(el.textContent||'')){
+          el.style.setProperty('display','none','important');
+        }
+      }
     }
 
     const d15=d.getElementById('jp15');
@@ -281,8 +297,12 @@ f.addEventListener('load',()=>{
         card('apothéose','2 pessoas · reserva VAYKFKKV · 49F Toranomon Hills Station Tower.','19:00 · FIXO','https://images.engineweb.jp/media/article/3350004/images/main_6cf70da22e88ab597f14bfaadcf701b1.jpg?w=1200')+
         '</div>';
       updateTokyoDay(d15,routes15,cards15);
+      for(const el of [...d15.querySelectorAll('article')]){
+        if(!el.closest('.tokyo-route-overrides,.attraction-grid')) el.style.setProperty('display','none','important');
+      }
     }
-  }catch(e){}
+  }catch(e){ console.error('Erro ao atualizar roteiro:',e); }
+  finally { f.style.visibility='visible'; }
 });
 </script>
 </body>
